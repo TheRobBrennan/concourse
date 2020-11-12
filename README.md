@@ -8,7 +8,7 @@ If you are unfamiliar with Docker, don't panic. You can download and install [Do
 
 If you have [Node.js](https://nodejs.org/en/) installed on your system, you'll be able to run scripts in `package.json` with `npm run <script-name>` - such as `npm run start:clean`
 
-If you don't have [Node.js](https://nodejs.org/en/) or `npm` installed, you can run the `docker-compose` commands directly. For example, instead of `npm run start:clean`, you would use `docker-compose up --build` instead.
+If you don't have [Node.js](https://nodejs.org/en/) or `npm` installed, you can run the `docker-compose` commands directly. For example, instead of `npm run start:clean`, you would use `docker-compose up --build` instead to start the application.
 
 Once you have started your application, the Python Flask example should be available at [http://0.0.0.0:5000](http://0.0.0.0:5000) 🤓
 
