@@ -1,0 +1,1 @@
+This project explores working with [Python](https://www.python.org), [Flask](https://flask.palletsprojects.com/en/1.1.x/), [Next.js](https://nextjs.org), and [TypeScript](https://www.typescriptlang.org) within a Docker environment for local development.
