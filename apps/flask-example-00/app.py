@@ -26,18 +26,9 @@ redis = Redis(host='redis', port=REDIS_PORT,
 
 @app.route('/')
 def hello():
-    # Log before
-    app.logger.info(
-        'Hit counter is at %s' % redis.get('hits'))
-
-    # Increment our hit counter key in Redis
     redis.incr('hits')
-
-    # Log after
     app.logger.info(
         'Hit counter is now %s' % redis.get('hits'))
-
-    # Return result to the web page
     return 'This Compose/Flask demo has been viewed %s time(s).' % redis.get('hits')
 
 
