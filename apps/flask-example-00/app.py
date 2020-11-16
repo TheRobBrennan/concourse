@@ -30,7 +30,7 @@ def hello():
     app.logger.info(
         'Hit counter is at %s' % redis.get('hits'))
 
-    # Increment our hit counter key in Redix
+    # Increment our hit counter key in Redis
     redis.incr('hits')
 
     # Log after
