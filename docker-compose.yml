@@ -6,8 +6,13 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - "5000:5000"
+      - "4000:4000"
+    environment:
+      FLASK_APP: /code/app.py
+      FLASK_ENV: development
+    command: flask run --host=0.0.0.0 --port=5000 --no-debugger --no-reload
     volumes:
-      - ./apps/flask-example-00/:/code
+      - apps/flask-example-00/:/code
     depends_on:
       - redis
   redis:
