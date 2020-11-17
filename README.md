@@ -40,3 +40,5 @@ To debug your application using [VS Code](https://code.visualstudio.com):
     - You may need to make a minor change (such as saving the `app.py` file) for breakpoints and the debugger to take effect
 
 Launch configurations for [VS Code](https://code.visualstudio.com) are in `.vscode/launch.json` - with `Attach to Flask Example 00` demonstrating how to connect to an example Python Flask application which is running within a Docker container 🤓
+
+![.vscode/__screenshots__/vscode-python-debugger.png](.vscode/__screenshots__/vscode-python-debugger.png)
