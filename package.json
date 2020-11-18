@@ -10,8 +10,8 @@
     "start": "docker-compose up",
     "start:clean": "docker-compose up --build",
     "stop": "docker-compose stop",
-    "destroy": "docker-compose rm -f",
-    "destroy:global": "docker system prune -f || docker volume prune -f"
+    "destroy": "docker-compose rm -f -v",
+    "destroy:global": "docker system prune -f --volumes && docker image prune -a -f"
   },
   "repository": {
     "type": "git",
