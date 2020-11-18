@@ -26,6 +26,8 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({ message }) => {
   )
 }
 
+// For examples using TypeScript for Next.js static generation and server-side rendering, refer to
+// https://nextjs.org/docs/basic-features/typescript#static-generation-and-server-side-rendering
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const url = process.env.NEXT_PUBLIC_FLASK_API || ""
