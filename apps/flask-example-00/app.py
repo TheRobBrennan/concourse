@@ -1,5 +1,5 @@
 # apps/flask-example-00/app.py
-from flask import Flask
+from flask import Flask, jsonify
 from redis import Redis
 
 # Application settings
@@ -30,6 +30,11 @@ def hello():
     app.logger.info(
         'Hit counter is now %s' % redis.get('hits'))
     return 'This Compose/Flask demo has been viewed %s time(s).' % redis.get('hits')
+
+
+@app.route('/api/hello-world')
+def helloApi():
+    return jsonify(message="Hello, world!")
 
 
 if __name__ == "__main__":

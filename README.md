@@ -22,7 +22,7 @@ The following scripts are in `package.json` for convenience:
 - `start:clean` - This starts the entire Dockerized application - all services defined in `./docker-compose.yml` - with freshly built Docker images
 - `stop` - This stops all services defined in `./docker-compose.yml`
 - `destroy` - This removes all stopped containers (services) as defined in `./docker-compose.yml`
-- `destroy:global` - WARNING: This removes all unused Docker containers and images on your system - including those that may have been created in other projects. Be careful!
+- `destroy:global` - **WARNING: This removes all unused Docker containers, networks, volumes, and images not referenced by any containers on your system - including those that may have been created in other projects. Be careful!**
 
 ## Visual Studio Code
 
