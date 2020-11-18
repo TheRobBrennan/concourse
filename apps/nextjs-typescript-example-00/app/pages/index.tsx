@@ -51,6 +51,7 @@ export const getStaticProps: GetStaticProps = async () => {
     console.error(
       `Handling expected error when the Python Flask API is not available (e.g. building the Next.js container for development, etc)`
     )
+
     return {
       // These props will be passed to the Next.js page component
       props: {
