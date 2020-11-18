@@ -1,6 +1,7 @@
-import { FunctionComponent } from "react"
 import { GetStaticProps } from "next"
 import Link from "next/link"
+import { FunctionComponent } from "react"
+
 import Layout from "../components/Layout"
 
 type IndexPageAPIResponse = {
