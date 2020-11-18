@@ -37,7 +37,7 @@ services:
       # Prevent the node_modules and .next folders in the Docker container from being accidentally overwritten with our initial mapping of our local directory to /usr/src/app
       - /usr/src/app/node_modules
       - /usr/src/app/.next
-    # env_file:
-    #   - .env
+    env_file:
+      - ./apps/nextjs-typescript-example-00/app/.env.local
     depends_on:
       - python-flask
