@@ -12,11 +12,17 @@ If you don't have [Node.js](https://nodejs.org/en/) or `npm` installed, you can 
 
 Once you have started your application, the Python Flask example should be available at [http://0.0.0.0:5000](http://0.0.0.0:5000) 🤓
 
-## Docker scripts
+## Scripts
 
-This project also contains several scripts to simplify developing your application using Docker.
+This project also contains several scripts to simplify developing your application.
 
 The following scripts are in `package.json` for convenience:
+
+- `analyze` - This builds the Next.js application and generates two visual representations to explore and view the bundle sizes of the client application and server-side application
+
+![apps/nextjs-typescript-example-00/app/__screenshots__/bundle-analysis-example-client.png](apps/nextjs-typescript-example-00/app/__screenshots__/bundle-analysis-example-client.png)
+
+![apps/nextjs-typescript-example-00/app/__screenshots__/bundle-analysis-example-server.png](apps/nextjs-typescript-example-00/app/__screenshots__/bundle-analysis-example-server.png)
 
 - `start` - This launches the Dockerized application - all services defined in `./docker-compose.yml` - and can be enhanced to launch additional client apps as desired.
 - `start:clean` - This starts the entire Dockerized application - all services defined in `./docker-compose.yml` - with freshly built Docker images
