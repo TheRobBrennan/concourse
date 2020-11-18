@@ -69,11 +69,17 @@ If you are running the app within the Dockerized environment, please make sure t
 NEXT_PUBLIC_FLASK_API="http://python-flask:5000/api/hello-world"
 ```
 
-## Docker scripts
+## Scripts
 
-This project also contains several scripts to simplify developing your application using Docker.
+This project also contains several scripts to simplify developing your application.
 
 The following scripts are in `package.json` for convenience:
+
+- `analyze` - This builds the Next.js application and generates two visual representations to explore and view the bundle sizes of the client application and server-side application
+
+![app/__screenshots__/bundle-analysis-example-client.png](app/__screenshots__/bundle-analysis-example-client.png)
+
+![app/__screenshots__/bundle-analysis-example-server.png](app/__screenshots__/bundle-analysis-example-server.png)
 
 - `start` - This launches the Dockerized application - all services defined in `./docker-compose.yml` - and can be enhanced to launch additional services as desired.
 - `start:clean` - This starts the entire Dockerized application - all services defined in `./docker-compose.yml` - with freshly built Docker images

@@ -10,6 +10,7 @@
     "npm": ">=6.14.8"
   },
   "scripts": {
+    "analyze": "cd apps/nextjs-typescript-example-00/app && npm run analyze",
     "build": "npm run stop && npm run destroy && npm run start:clean",
     "start": "docker-compose up",
     "start:clean": "docker-compose up --build",
