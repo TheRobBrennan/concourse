@@ -34,7 +34,7 @@ def hello():
 
 @app.route('/api/hello-world')
 def helloApi():
-    return jsonify(message="Hello, world!")
+    return jsonify(message="Hello, world! This message is from the Python Flask API.")
 
 
 if __name__ == "__main__":
