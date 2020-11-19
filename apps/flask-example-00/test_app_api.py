@@ -22,6 +22,7 @@ class TestFlaskApi(unittest.TestCase):
 
     def test_logger(self):
         self.logger.info(TARGET_FILE + ' test_logger')
+        # TEST: You can fail a test with self.fail()
         pass
 
     def test_api_get_hello_world(self):

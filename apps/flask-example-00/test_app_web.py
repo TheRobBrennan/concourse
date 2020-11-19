@@ -21,7 +21,8 @@ class TestFlaskWeb(unittest.TestCase):
 
     def test_logger(self):
         self.logger.info(TARGET_FILE + ' test_logger')
-        pass
+        # TEST: You can fail a test with self.fail()
+        # pass
 
     def test_web_get_default_page(self):
         self.logger.info(TARGET_FILE + ' test_web_get_default_page')
