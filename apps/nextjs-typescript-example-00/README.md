@@ -40,36 +40,7 @@ $ docker system prune -f --volumes && docker image prune -a -f
 # ----------------------------------------------------------------------- #
 ```
 
-## Create a Next.js app using TypeScript
-
-We will use the latest version of [create-next-app](https://nextjs.org/docs/api-reference/create-next-app) to generate our [Next.js](https://nextjs.org) app with [TypeScript](https://www.typescriptlang.org) automatically configured for us:
-
-```sh
-$ npx create-next-app app --example with-typescript
-```
-
-Let's verify that our app runs by starting Next.js in development mode:
-
-```sh
-$ cd app
-$ npm run dev
-```
-
-Your application should be available at [http://localhost:3000](http://localhost:3000) 🤓
-
-### Environment variables
-
-Please copy `./app/.env.local.sample` to `./app/.env` and then define the appropriate environment variables.
-
-If you are running the app within the Dockerized environment, please make sure that you have the Python Flask API pointing to the Docker service name of your application (e.g. `python-flask` in `docker-compose.yml`):
-
-```sh
-# You must use NEXT_PUBLIC_ as a prefix if you'd like to make environment variables explicitly available to the web browser in a Next.js application
-# https://nextjs.org/docs/basic-features/environment-variables#exposing-environment-variables-to-the-browser
-NEXT_PUBLIC_FLASK_API="http://python-flask:5000/api/hello-world"
-```
-
-## Scripts
+### Scripts
 
 This project also contains several scripts to simplify developing your application.
 
@@ -86,3 +57,56 @@ The following scripts are in `package.json` for convenience:
 - `stop` - This stops all services defined in `./docker-compose.yml`
 - `destroy` - This removes all stopped containers (services) as defined in `./docker-compose.yml`
 - `destroy:global` - **WARNING: This removes all unused Docker containers, networks, volumes, and images not referenced by any containers on your system - including those that may have been created in other projects. Be careful!**
+- `test` - This runs all of the tests
+- `test:ci` - This is useful when running Jest within a CI environment. See [https://jestjs.io/docs/en/cli#--ci](https://jestjs.io/docs/en/cli#--ci)
+- `test:coverage` - This runs all of the tests and generates a code coverage report that is output to the terminal
+- `test:coverage:view` - This runs all of the tests and automatically launces the default browser to display an interactive code coverage report
+- `test:verbose` - This runs all of the tests and displays individual results of each test. See [https://jestjs.io/docs/en/cli#--verbose](https://jestjs.io/docs/en/cli#--verbose)
+- `test:watch` - This runs Jest in watch mode and will re-run appropriate tests when files are changed. See [https://jestjs.io/docs/en/cli#--watch](https://jestjs.io/docs/en/cli#--watch)
+
+# Create a Next.js app using TypeScript
+
+We will use the latest version of [create-next-app](https://nextjs.org/docs/api-reference/create-next-app) to generate our [Next.js](https://nextjs.org) app with [TypeScript](https://www.typescriptlang.org) automatically configured for us:
+
+```sh
+$ npx create-next-app app --example with-typescript
+```
+
+Let's verify that our app runs by starting Next.js in development mode:
+
+```sh
+$ cd app
+$ npm run dev
+```
+
+Your application should be available at [http://localhost:3000](http://localhost:3000) 🤓
+
+## Environment variables
+
+Please copy `./app/.env.local.sample` to `./app/.env` and then define the appropriate environment variables.
+
+If you are running the app within the Dockerized environment, please make sure that you have the Python Flask API pointing to the Docker service name of your application (e.g. `python-flask` in `docker-compose.yml`):
+
+```sh
+# You must use NEXT_PUBLIC_ as a prefix if you'd like to make environment variables explicitly available to the web browser in a Next.js application
+# https://nextjs.org/docs/basic-features/environment-variables#exposing-environment-variables-to-the-browser
+NEXT_PUBLIC_FLASK_API="http://python-flask:5000/api/hello-world"
+```
+
+## Testing
+
+Our test environment uses [Jest](https://jestjs.io) and [Enzyme](https://enzymejs.github.io/enzyme/)
+
+This application is already configured to use [Jest](https://jestjs.io) and [Enzyme](https://enzymejs.github.io/enzyme/); however a reference guide has been included in the event you need to do this for other [Next.js](https://nextjs.org) applications.
+
+If you're looking to set up [Jest](https://jestjs.io) and [Enzyme](https://enzymejs.github.io/enzyme/) with a [Next.js](https://nextjs.org) application, you will need to do the following.
+
+```sh
+# Install Jest and Enzyme development dependencies
+$ npm i -D @types/enzyme @types/jest enzyme enzyme-adapter-react-16 jest dotenv
+
+# Create .babelrc
+# Create jest.config.js
+# Create jest.setup.js
+# Add scripts to our Next.js app's package.json
+```
