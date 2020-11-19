@@ -5,6 +5,7 @@ services:
     ports:
       - 3000:3000
       - 9229:9229
+      - 6006:6006
     build:
       context: ./app
       dockerfile: Dockerfile

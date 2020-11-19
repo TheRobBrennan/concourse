@@ -29,6 +29,7 @@ services:
     ports:
       - 3000:3000
       - 9229:9229
+      - 6006:6006
     build:
       context: ./apps/nextjs-typescript-example-00/app
       dockerfile: Dockerfile
