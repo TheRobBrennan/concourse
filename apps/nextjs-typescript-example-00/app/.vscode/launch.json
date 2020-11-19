@@ -5,14 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Next.js application",
-      "port": 9229,
+      "name": "Attach by Process ID",
+      // Look for the process with "node /usr/src/app/node_modules/.bin/next
+      "processId": "${command:PickProcess}",
       "request": "attach",
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "type": "pwa-node",
-      "sourceMaps": true
+      "type": "pwa-node"
     },
     {
       "type": "chrome",
