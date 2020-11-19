@@ -24,5 +24,8 @@ EXPOSE 3000
 # Expose our Node.js debug port
 EXPOSE 9229
 
+# Expose our Storybook web application port
+EXPOSE 6006
+
 # Start the app
 CMD ["npm", "run", "dev"]
