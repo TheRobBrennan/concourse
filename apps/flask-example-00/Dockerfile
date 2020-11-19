@@ -6,6 +6,9 @@ FROM python:3
 RUN mkdir -p /code
 WORKDIR /code
 
+# Install our Python linter
+RUN pip install autopep8
+
 # Install our Python packages
 ADD ./requirements.txt /code
 RUN pip install -r requirements.txt
