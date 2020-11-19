@@ -15,8 +15,11 @@
     "start": "docker-compose up",
     "start:clean": "docker-compose up --build",
     "stop": "docker-compose stop",
-    "test": "npm run test:nextjs",
-    "test:nextjs": "cd apps/nextjs-typescript-example-00/app/ && npm run test",
+    "test": "npm run test:python:flask && npm run test:nextjs",
+    "test:nextjs": "docker exec -it explore-docker-python-flask-nextjs-typescript_nextjs_1 npm test",
+    "test:nextjs:coverage": "docker exec -it explore-docker-python-flask-nextjs-typescript_nextjs_1 npm run test:coverage",
+    "test:nextjs:watch": "docker exec -it explore-docker-python-flask-nextjs-typescript_nextjs_1 npm run test:watchAll",
+    "test:python:flask": "docker exec -it explore-docker-python-flask-nextjs-typescript_python-flask_1 python -m unittest discover ./",
     "destroy": "docker-compose rm -f -v",
     "destroy:global": "docker system prune -f --volumes && docker image prune -a -f"
   },
