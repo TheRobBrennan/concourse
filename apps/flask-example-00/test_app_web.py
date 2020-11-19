@@ -7,7 +7,7 @@ BASE_URL = 'http://localhost:5000/'
 TARGET_FILE = 'test_app_web.py'
 
 
-class TestFlaskApi(unittest.TestCase):
+class TestFlaskWeb(unittest.TestCase):
     logger = logging.getLogger(__name__)
     logging.basicConfig(format='%(asctime)s %(module)s %(levelname)s: %(message)s',
                         datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.INFO)
