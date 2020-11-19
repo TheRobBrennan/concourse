@@ -16,7 +16,8 @@
     "test:coverage": "jest --coverage",
     "test:coverage:view": "jest --coverage && open coverage/lcov-report/index.html",
     "test:verbose": "jest --verbose",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:watchAll": "jest --watchAll"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^10.0.2",

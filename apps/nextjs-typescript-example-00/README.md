@@ -63,6 +63,7 @@ The following scripts are in `package.json` for convenience:
 - `test:coverage:view` - This runs all of the tests and automatically launces the default browser to display an interactive code coverage report
 - `test:verbose` - This runs all of the tests and displays individual results of each test. See [https://jestjs.io/docs/en/cli#--verbose](https://jestjs.io/docs/en/cli#--verbose)
 - `test:watch` - This runs Jest in watch mode and will re-run appropriate tests when files are changed. See [https://jestjs.io/docs/en/cli#--watch](https://jestjs.io/docs/en/cli#--watch)
+- `test:watchAll` - This runs Jest in watch mode and will re-run ALL tests when files are changed - useful when running the Jest test runner within a Docker container, for example. See [https://jestjs.io/docs/en/cli#--watchall](https://jestjs.io/docs/en/cli#--watchall)
 
 # Create a Next.js app using TypeScript
 
