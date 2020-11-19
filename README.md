@@ -10,7 +10,12 @@ If you have [Node.js](https://nodejs.org/en/) installed on your system, you'll b
 
 If you don't have [Node.js](https://nodejs.org/en/) or `npm` installed, you can run the `docker-compose` commands directly. For example, instead of `npm run start:clean`, you would use `docker-compose up --build` instead to start the application.
 
-Once you have started your application, the Python Flask example should be available at [http://0.0.0.0:5000](http://0.0.0.0:5000) 🤓
+Once you have started your application:
+
+- The Next.js example is available at [http://localhost:3000](http://localhost:3000)
+- The Python Flask example
+  - Web application is available at [http://0.0.0.0:5000](http://0.0.0.0:5000)
+  - API is available at [http://0.0.0.0:5000/api/hello-world](http://0.0.0.0:5000/api/hello-world)
 
 ## Scripts
 
