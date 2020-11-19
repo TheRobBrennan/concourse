@@ -118,3 +118,10 @@ $ npm i -D @types/enzyme @types/jest enzyme enzyme-adapter-react-16 jest dotenv
 # Create jest.setup.js
 # Add scripts to our Next.js app's package.json
 ```
+
+## Storybook
+
+```sh
+# Install Storybook dependencies
+$ npm i -D @storybook/react @storybook/addon-links @storybook/addon-essentials babel-loader
+```
