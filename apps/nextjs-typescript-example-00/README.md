@@ -96,7 +96,14 @@ NEXT_PUBLIC_FLASK_API="http://python-flask:5000/api/hello-world"
 
 ## Testing
 
-Our test environment uses [Jest](https://jestjs.io) and [Enzyme](https://enzymejs.github.io/enzyme/)
+Our test environment uses [Jest](https://jestjs.io) and [Enzyme](https://enzymejs.github.io/enzyme/).
+
+In general, tests should be as close to their original files as possible. The exception to this would be files that exist in the `pages`
+directory.
+
+We do not want our tests appearing as routes for our application, so tests for these files should be placed in `__tests__` - following a similar directory structure. Please see the example test for the default page as well as a simple [Next.js](https://nextjs.org) API route for reference.
+
+For global tests, we can also create commonly used mock objects with the `__mocks__` folder.
 
 This application is already configured to use [Jest](https://jestjs.io) and [Enzyme](https://enzymejs.github.io/enzyme/); however a reference guide has been included in the event you need to do this for other [Next.js](https://nextjs.org) applications.
 
