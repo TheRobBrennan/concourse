@@ -34,6 +34,8 @@ The following scripts are in `package.json` for convenience:
 - `stop` - This stops all services defined in `./docker-compose.yml`
 - `destroy` - This removes all stopped containers (services) as defined in `./docker-compose.yml`
 - `destroy:global` - **WARNING: This removes all unused Docker containers, networks, volumes, and images not referenced by any containers on your system - including those that may have been created in other projects. Be careful!**
+- `storybook` - Assuming you have your Docker containers running, this script will start the Storybook application within the Next.js Docker container. Your Storybook application will be available at [http://localhost:6006](http://localhost:6006)
+- `storybook:build` - Assuming you have your Docker containers running, this script will build the static version of the Storybook application within the Next.js Docker container.
 - `test` - Assuming you have your Docker containers running, this script will test both Python and Next.js tests within their respective containers. This will fail if either Python Flask or Next.js has a failing test.
 - `test:nextjs` - Assuming you have your Docker containers running, this command will connect to the Next.js container and run the test suite
 - `test:nextjs:coverage` - Assuming you have your Docker containers running, this command will connect to the Next.js container to run the test suite and generate a code coverage report.
