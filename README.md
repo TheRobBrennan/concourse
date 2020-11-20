@@ -28,6 +28,7 @@ We have a variety of tests available in this project:
 
 - Python Flask
   - Our unit tests use Python's [unittest](https://docs.python.org/3/library/unittest.html) unit testing framework.
+    - A reference Python script has been created to test the Flask application using curl, too.
 - Next.js
   - Our unit and integration tests use [Jest](https://jestjs.io) and [Enzyme](https://enzymejs.github.io/enzyme/).
   - Our end-to-end (E2E) tests use [Cypress](https://www.cypress.io) and are self-contained within the `apps/cypress` directory
@@ -64,6 +65,7 @@ The following scripts are in `package.json` for convenience:
 - `test:nextjs:coverage` - Assuming you have your Docker containers running, this command will connect to the Next.js container to run the test suite and generate a code coverage report.
 - `test:nextjs:watch` - Assuming you have your Docker containers running, this command will connect to the Next.js container to run Jest in --watchAll mode. This will re-run your tests every time a file is changed.
 - `test:python:flask` - Assuming you have your Docker containers running, this command will connect to the Python Flask container and run the test suite
+- `test:python:flask:curl` - Assuming you have your Docker containers running, this command will connect to the Python Flask container and run the curl test script.
 
 ## Visual Studio Code
 
