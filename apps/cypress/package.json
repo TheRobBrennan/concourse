@@ -7,7 +7,8 @@
   "license": "ISC",
   "scripts": {
     "start": "npx cypress open",
-    "test": "npx cypress run"
+    "test": "npx cypress run",
+    "test:flaps": "sh ./scripts/test-for-flaps.sh"
   },
   "repository": {
     "type": "git",
