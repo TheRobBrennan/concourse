@@ -1,6 +1,10 @@
 FROM cypress/base:10
 WORKDIR /app
 
+# Install bc for arithmetic calculations in shell scripts
+RUN apt-get update
+RUN apt-get install bc
+
 # dependencies will be installed only if the package files change
 COPY package.json .
 COPY package-lock.json .
