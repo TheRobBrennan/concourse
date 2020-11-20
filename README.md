@@ -16,6 +16,25 @@ Once you have started your application:
 - The Python Flask example
   - Web application is available at [http://0.0.0.0:5000](http://0.0.0.0:5000)
   - API is available at [http://0.0.0.0:5000/api/hello-world](http://0.0.0.0:5000/api/hello-world)
+- [Cypress](https://www.cypress.io) will execute all of the E2E tests to verify the app is working as expected
+  - These tests can be viewed at [./apps/cypress/cypress/integration](./apps/cypress/cypress/integration)
+  - Once your application has started, you will need to run these tests from your local development environment with `npm run test:e2e`
+
+## Testing
+
+We have a variety of tests available in this project:
+
+- Python Flask
+  - Our unit tests use Python's [unittest](https://docs.python.org/3/library/unittest.html) unit testing framework.
+- Next.js
+  - Our unit and integration tests use [Jest](https://jestjs.io) and [Enzyme](https://enzymejs.github.io/enzyme/).
+  - Our end-to-end (E2E) tests use [Cypress](https://www.cypress.io) and are self-contained within the `apps/cypress` directory
+
+Once you have started your application, you can run both the Python and Next.js unit and integration tests with `npm run test` - which executes the appropriate tests within the appropriate Python or Next.js Docker container.
+
+The end-to-end (E2E) tests with [Cypress](https://www.cypress.io) can be run against the Docker container with `npm run test:e2e` - which will restart the [Cypress](https://www.cypress.io) container.
+
+For the best experience, you can also run the end-to-end (E2E) tests with [Cypress](https://www.cypress.io) locally with `npm run test:e2e:open` - which will launch the [Cypress](https://www.cypress.io) test runner and an instance of Google Chrome on your computer.
 
 ## Scripts
 
