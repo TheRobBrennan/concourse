@@ -12,7 +12,7 @@ start=`date +%s`
 INT_TEST=${1:-cypress/integration/page.index.spec.js}
 
 # Specify the number of iterations to run
-ITERATIONS=${2:-2}
+ITERATIONS=${2:-100}
 
 # Initialize success and fail counters
 SUCCESS=0
