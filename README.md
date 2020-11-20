@@ -13,9 +13,29 @@ If you don't have [Node.js](https://nodejs.org/en/) or `npm` installed, you can 
 Once you have started your application:
 
 - The Next.js example is available at [http://localhost:3000](http://localhost:3000)
+  - If you run `npm run storybook`, the [Storybook](https://storybook.js.org) application will be available at [http://localhost:6006](http://localhost:6006) - which is a great tool for visually exploring and interacting with your React components outside of the Next.js application 🤓
 - The Python Flask example
   - Web application is available at [http://0.0.0.0:5000](http://0.0.0.0:5000)
   - API is available at [http://0.0.0.0:5000/api/hello-world](http://0.0.0.0:5000/api/hello-world)
+- [Cypress](https://www.cypress.io) will execute all of the E2E tests to verify the app is working as expected
+  - These tests can be viewed at [./apps/cypress/cypress/integration](./apps/cypress/cypress/integration)
+  - Once your application has started, you will need to run these tests from your local development environment with `npm run test:e2e`
+
+## Testing
+
+We have a variety of tests available in this project:
+
+- Python Flask
+  - Our unit tests use Python's [unittest](https://docs.python.org/3/library/unittest.html) unit testing framework.
+- Next.js
+  - Our unit and integration tests use [Jest](https://jestjs.io) and [Enzyme](https://enzymejs.github.io/enzyme/).
+  - Our end-to-end (E2E) tests use [Cypress](https://www.cypress.io) and are self-contained within the `apps/cypress` directory
+
+Once you have started your application, you can run both the Python and Next.js unit and integration tests with `npm run test` - which executes the appropriate tests within the appropriate Python or Next.js Docker container.
+
+The end-to-end (E2E) tests with [Cypress](https://www.cypress.io) can be run against the Docker container with `npm run test:e2e` - which will restart the [Cypress](https://www.cypress.io) container.
+
+For the best experience, you can also run the end-to-end (E2E) tests with [Cypress](https://www.cypress.io) locally with `npm run test:e2e:open` - which will launch the [Cypress](https://www.cypress.io) test runner and an instance of Google Chrome on your computer.
 
 ## Scripts
 
@@ -37,6 +57,8 @@ The following scripts are in `package.json` for convenience:
 - `storybook` - Assuming you have your Docker containers running, this script will start the Storybook application within the Next.js Docker container. Your Storybook application will be available at [http://localhost:6006](http://localhost:6006)
 - `storybook:build` - Assuming you have your Docker containers running, this script will build the static version of the Storybook application within the Next.js Docker container.
 - `test` - Assuming you have your Docker containers running, this script will test both Python and Next.js tests within their respective containers. This will fail if either Python Flask or Next.js has a failing test.
+- `test:e2e` - This will launch our end-to-end (E2E) suite of tests; currently consisting of [Cypress](https://www.cypress.io) tests.
+- `test:e2e:cypress` - This will launch [Cypress](https://www.cypress.io) locally from your development machine.
 - `test:nextjs` - Assuming you have your Docker containers running, this command will connect to the Next.js container and run the test suite
 - `test:nextjs:coverage` - Assuming you have your Docker containers running, this command will connect to the Next.js container to run the test suite and generate a code coverage report.
 - `test:nextjs:watch` - Assuming you have your Docker containers running, this command will connect to the Next.js container to run Jest in --watchAll mode. This will re-run your tests every time a file is changed.
@@ -50,23 +72,9 @@ Suggested extensions for [VS Code](https://code.visualstudio.com) are available 
 
 ### Debugging
 
-If you are using [VS Code](https://code.visualstudio.com), there are two ways you can debug this application:
+If you are using [VS Code](https://code.visualstudio.com), you can debug this application by:
 
-- Using your local development environment
 - Installing the [Docker for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to attach [VS Code](https://code.visualstudio.com) to a running Docker container
-
-#### Using your local development environment
-
-To debug your application using [VS Code](https://code.visualstudio.com):
-
-- Make sure your application is running within the Dockerized environment (see `Local development` above)
-- Click on `Run` in the left sidebar and select the launch configuration you would like to use (e.g. `Attach to Flask Example 00`)
-  - Select breakpoint(s) to verify that your debugger has connected successfully
-    - You may need to make a minor change (such as saving the `app.py` file) for breakpoints and the debugger to take effect
-
-Launch configurations for [VS Code](https://code.visualstudio.com) are in `.vscode/launch.json` - with `Attach to Flask Example 00` demonstrating how to connect to an example Python Flask application which is running within a Docker container 🤓
-
-![.vscode/__screenshots__/vscode-python-debugger.png](.vscode/__screenshots__/vscode-python-debugger.png)
 
 #### Attaching VS Code to a running Docker container
 

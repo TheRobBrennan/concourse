@@ -22,6 +22,10 @@
     "test:nextjs:coverage": "docker exec -it explore-docker-python-flask-nextjs-typescript_nextjs_1 npm run test:coverage",
     "test:nextjs:watch": "docker exec -it explore-docker-python-flask-nextjs-typescript_nextjs_1 npm run test:watchAll",
     "test:python:flask": "docker exec -it explore-docker-python-flask-nextjs-typescript_python-flask_1 python -m unittest discover ./",
+    "test:e2e": "npm run test:e2e:cypress",
+    "test:e2e:open": "npm run test:e2e:cypress:open",
+    "test:e2e:cypress": "docker-compose restart cypress",
+    "test:e2e:cypress:open": "cd apps/cypress && npm start",
     "destroy": "docker-compose rm -f -v",
     "destroy:global": "docker system prune -f --volumes && docker image prune -a -f"
   },

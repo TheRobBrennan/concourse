@@ -1,1 +1,3 @@
 apps/flask-example-00/__pycache__
+apps/cypress/node_modules
+apps/cypress/cypress/videos
