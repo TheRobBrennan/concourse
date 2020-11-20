@@ -8,7 +8,7 @@
   "scripts": {
     "start": "npx cypress open",
     "test": "npx cypress run",
-    "test:flaps": "sh ./scripts/test-for-flaps.sh"
+    "test:flaps": "time sh ./scripts/test-for-flaps-chrome.sh"
   },
   "repository": {
     "type": "git",
