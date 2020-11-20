@@ -6,7 +6,8 @@
   "author": "Rob Brennan <rob@therobbrennan.com> (therobbrennan.com)",
   "license": "ISC",
   "scripts": {
-    "start": "npx cypress open"
+    "start": "npx cypress open",
+    "test": "npx cypress run"
   },
   "repository": {
     "type": "git",
