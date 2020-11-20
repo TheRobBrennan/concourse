@@ -5,6 +5,7 @@ import unittest
 
 BASE_URL = 'http://localhost:5000/api'
 API_URL_HELLO_WORLD = BASE_URL + '/hello-world'
+API_URL_USER = BASE_URL + '/user'
 TARGET_FILE = 'test_app_api.py'
 
 
@@ -36,6 +37,12 @@ class TestFlaskApi(unittest.TestCase):
 
         # Verify we have an expected substring in the message property of our JSON data
         self.assertTrue(expectedSubstring in data['message'])
+
+    def test_api_get_user(self):
+        self.logger.info(TARGET_FILE + ' test_api_get_hello_world')
+        response = self.app.get(API_URL_USER)
+
+        self.logger.info(str(("response: ", response)))
 
     def tearDown(self):
         self.logger.info(TARGET_FILE + ' tearDown')

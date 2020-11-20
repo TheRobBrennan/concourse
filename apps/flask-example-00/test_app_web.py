@@ -4,6 +4,7 @@ import logging
 import unittest
 
 BASE_URL = 'http://localhost:5000/'
+WEB_URL_SWAGGER_DOCUMENTATION = BASE_URL + '/apidocs'
 TARGET_FILE = 'test_app_web.py'
 
 
@@ -30,6 +31,14 @@ class TestFlaskWeb(unittest.TestCase):
 
         # Verify we have an HTTP 200 status code
         self.assertEqual(response.status_code, 200)
+
+        # Verify we have a response
+        self.logger.info(response)
+        # self.assertTrue(expectedSubstring in data['message'])
+
+    def test_web_get_swagger_default_page(self):
+        self.logger.info(TARGET_FILE + ' test_web_get_swagger_default_page')
+        response = self.app.get(WEB_URL_SWAGGER_DOCUMENTATION)
 
         # Verify we have a response
         self.logger.info(response)
