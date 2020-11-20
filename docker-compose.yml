@@ -42,3 +42,28 @@ services:
       - ./apps/nextjs-typescript-example-00/app/.env.local
     depends_on:
       - python-flask
+  cypress:
+    image: cypress
+    build: ./apps/cypress
+    container_name: cypress
+    depends_on:
+      - nextjs
+    # note: inside cypress container, the network allows accessing
+    # "nextjs" host under name "nextjs"
+    # so "curl http://nextjs:3000" would return whatever the webserver
+    # in the "nextjs" container is cooking on port 3000
+    # see https://docs.docker.com/compose/networking/
+    environment:
+      - CYPRESS_baseUrl=http://nextjs:3000
+    command: npx cypress run
+    # mount the host directory nextjs/cypress and the file nextjs/cypress.json as
+    # volumes within the container
+    # this means that:
+    #  1. anything that Cypress writes to these folders (e.g., screenshots,
+    #     videos) appears also on the Docker host's filesystem
+    #  2. any change that the developer applies to Cypress files on the host
+    #     machine immediately takes effect within the cypress container (no docker
+    #     rebuild required).
+    volumes:
+      - ./apps/cypress/cypress:/app/cypress
+      - ./apps/cypress/cypress.json:/app/cypress.json
