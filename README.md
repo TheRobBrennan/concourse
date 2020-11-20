@@ -17,6 +17,7 @@ Once you have started your application:
 - The Python Flask example
   - Web application is available at [http://0.0.0.0:5000](http://0.0.0.0:5000)
   - API is available at [http://0.0.0.0:5000/api/hello-world](http://0.0.0.0:5000/api/hello-world)
+    - The Flask Swagger application is available at [http://0.0.0.0:5000/apidocs/](http://0.0.0.0:5000/apidocs/)
 - [Cypress](https://www.cypress.io) will execute all of the E2E tests to verify the app is working as expected
   - These tests can be viewed at [./apps/cypress/cypress/integration](./apps/cypress/cypress/integration)
   - Once your application has started, you will need to run these tests against the Docker container with `npm run test:e2e`.
