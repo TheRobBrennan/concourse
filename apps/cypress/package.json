@@ -1,0 +1,22 @@
+{
+  "name": "cypress-e2e-testing",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "Rob Brennan <rob@therobbrennan.com> (therobbrennan.com)",
+  "license": "ISC",
+  "scripts": {
+    "start": "npx cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRobBrennan/explore-docker-python-flask-nextjs-typescript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheRobBrennan/explore-docker-python-flask-nextjs-typescript/issues"
+  },
+  "homepage": "https://github.com/TheRobBrennan/explore-docker-python-flask-nextjs-typescript#readme",
+  "devDependencies": {
+    "cypress": "^5.6.0"
+  }
+}
