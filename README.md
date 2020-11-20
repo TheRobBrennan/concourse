@@ -13,6 +13,7 @@ If you don't have [Node.js](https://nodejs.org/en/) or `npm` installed, you can 
 Once you have started your application:
 
 - The Next.js example is available at [http://localhost:3000](http://localhost:3000)
+  - If you run `npm run storybook`, the [Storybook](https://storybook.js.org) application will be available at [http://localhost:6006](http://localhost:6006) - which is a great tool for visually exploring and interacting with your React components outside of the Next.js application 🤓
 - The Python Flask example
   - Web application is available at [http://0.0.0.0:5000](http://0.0.0.0:5000)
   - API is available at [http://0.0.0.0:5000/api/hello-world](http://0.0.0.0:5000/api/hello-world)
