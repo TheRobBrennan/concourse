@@ -71,23 +71,9 @@ Suggested extensions for [VS Code](https://code.visualstudio.com) are available 
 
 ### Debugging
 
-If you are using [VS Code](https://code.visualstudio.com), there are two ways you can debug this application:
+If you are using [VS Code](https://code.visualstudio.com), you can debug this application by:
 
-- Using your local development environment
 - Installing the [Docker for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to attach [VS Code](https://code.visualstudio.com) to a running Docker container
-
-#### Using your local development environment
-
-To debug your application using [VS Code](https://code.visualstudio.com):
-
-- Make sure your application is running within the Dockerized environment (see `Local development` above)
-- Click on `Run` in the left sidebar and select the launch configuration you would like to use (e.g. `Attach to Flask Example 00`)
-  - Select breakpoint(s) to verify that your debugger has connected successfully
-    - You may need to make a minor change (such as saving the `app.py` file) for breakpoints and the debugger to take effect
-
-Launch configurations for [VS Code](https://code.visualstudio.com) are in `.vscode/launch.json` - with `Attach to Flask Example 00` demonstrating how to connect to an example Python Flask application which is running within a Docker container 🤓
-
-![.vscode/__screenshots__/vscode-python-debugger.png](.vscode/__screenshots__/vscode-python-debugger.png)
 
 #### Attaching VS Code to a running Docker container
 
