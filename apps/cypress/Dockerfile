@@ -8,6 +8,7 @@ COPY package-lock.json .
 # Copy our scripts folder
 COPY ./scripts /app/scripts
 RUN /bin/sh -c 'chmod +x /app/scripts/test-for-flaps.sh'
+RUN /bin/sh -c 'chmod +x /app/scripts/test-for-flaps-chrome.sh'
 
 # by setting CI environment variable we switch the Cypress install messages
 # to small "started / finished" and avoid 1000s of lines of progress messages
