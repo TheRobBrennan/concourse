@@ -19,7 +19,8 @@ Once you have started your application:
   - API is available at [http://0.0.0.0:5000/api/hello-world](http://0.0.0.0:5000/api/hello-world)
 - [Cypress](https://www.cypress.io) will execute all of the E2E tests to verify the app is working as expected
   - These tests can be viewed at [./apps/cypress/cypress/integration](./apps/cypress/cypress/integration)
-  - Once your application has started, you will need to run these tests from your local development environment with `npm run test:e2e`
+  - Once your application has started, you will need to run these tests against the Docker container with `npm run test:e2e`.
+    - Alternatively, you can also run the end-to-end (E2E) tests with [Cypress](https://www.cypress.io) locally with `npm run test:e2e:open` - which will launch the [Cypress](https://www.cypress.io) test runner and an instance of Google Chrome on your computer. Just make sure that you have installed the modules in `./apps/cypress` by running `npm install` 🤓
 
 ## Testing
 
