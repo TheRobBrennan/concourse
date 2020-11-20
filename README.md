@@ -60,7 +60,9 @@ The following scripts are in `package.json` for convenience:
 - `storybook:build` - Assuming you have your Docker containers running, this script will build the static version of the Storybook application within the Next.js Docker container.
 - `test` - Assuming you have your Docker containers running, this script will test both Python and Next.js tests within their respective containers. This will fail if either Python Flask or Next.js has a failing test.
 - `test:e2e` - This will launch our end-to-end (E2E) suite of tests; currently consisting of [Cypress](https://www.cypress.io) tests.
+- `test:e2e:flaps` - This will launch our end-to-end (E2E) flap tests; currently `test:e2e:cypress:flaps`
 - `test:e2e:cypress` - This will launch [Cypress](https://www.cypress.io) locally from your development machine.
+- `test:e2e:cypress:flaps` - This will build a fresh [Cypress](https://www.cypress.io) service and then run the script to check a single test file for flaps.
 - `test:nextjs` - Assuming you have your Docker containers running, this command will connect to the Next.js container and run the test suite
 - `test:nextjs:coverage` - Assuming you have your Docker containers running, this command will connect to the Next.js container to run the test suite and generate a code coverage report.
 - `test:nextjs:watch` - Assuming you have your Docker containers running, this command will connect to the Next.js container to run Jest in --watchAll mode. This will re-run your tests every time a file is changed.
