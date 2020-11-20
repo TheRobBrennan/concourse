@@ -28,7 +28,7 @@ We have a variety of tests available in this project:
 
 - Python Flask
   - Our unit tests use Python's [unittest](https://docs.python.org/3/library/unittest.html) unit testing framework.
-    - A reference Python script has been created to test the Flask application using curl, too.
+    - A reference Python script has been created to test the Flask application using curl 🤓
 - Next.js
   - Our unit and integration tests use [Jest](https://jestjs.io) and [Enzyme](https://enzymejs.github.io/enzyme/).
   - Our end-to-end (E2E) tests use [Cypress](https://www.cypress.io) and are self-contained within the `apps/cypress` directory
