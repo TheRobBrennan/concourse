@@ -1,6 +1,8 @@
 # apps/flask-example-00/app.py
 from flask import Flask, jsonify
 from redis import Redis
+from flask_restful import Api
+from resources.api.routes import initialize_routes
 
 # Application settings
 HOST = "0.0.0.0"
@@ -23,6 +25,9 @@ app = Flask(__name__)
 redis = Redis(host='redis', port=REDIS_PORT,
               charset='utf-8', decode_responses=True)
 
+api = Api(app)
+
+initialize_routes(api)
 
 @app.route('/')
 def hello():
