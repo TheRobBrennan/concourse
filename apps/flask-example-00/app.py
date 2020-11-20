@@ -2,6 +2,10 @@
 from flask import Flask, jsonify
 from redis import Redis
 from flask_restful import Api
+from flasgger import swag_from
+from http import HTTPStatus
+from flasgger import Swagger
+
 from resources.api.routes import initialize_routes
 
 # Application settings
@@ -25,11 +29,25 @@ app = Flask(__name__)
 redis = Redis(host='redis', port=REDIS_PORT,
               charset='utf-8', decode_responses=True)
 
+# Flask Swagger configuration and initializacion
+app.config['SWAGGER'] = {
+    'title': 'Flask API test'
+}
+swagger = Swagger(app)
+
+# Flask_restful initialization 
 api = Api(app)
 
 initialize_routes(api)
 
 @app.route('/')
+@swag_from({
+    'responses': {
+        HTTPStatus.OK.value: {
+            'Description': 'Welcome to flask'
+        }
+    } 
+})
 def hello():
     redis.incr('hits')
     app.logger.info(
