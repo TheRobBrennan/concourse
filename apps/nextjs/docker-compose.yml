@@ -3,8 +3,11 @@ version: "3.3"
 services:
   nextjs:
     ports:
+      # Next.js application and debug port
       - 3000:3000
       - 9229:9229
+
+      # Storybook
       - 6006:6006
     build:
       context: ./app

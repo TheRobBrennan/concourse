@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-typescript-example-00",
+  "name": "nextjs",
   "version": "0.0.0",
   "description": "For this project, we are going to be using [create-next-app](https://nextjs.org/docs/api-reference/create-next-app) to generate a [Next.js](https://nextjs.org) app that uses [TypeScript](https://www.typescriptlang.org).",
   "keywords": [],
@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TheRobBrennan/explore-docker-python-flask-nextjs-typescript.git"
+    "url": "git+https://github.com/TheRobBrennan/concourse.git"
   },
   "bugs": {
-    "url": "https://github.com/TheRobBrennan/explore-docker-python-flask-nextjs-typescript/issues"
+    "url": "https://github.com/TheRobBrennan/concourse/issues"
   },
-  "homepage": "https://github.com/TheRobBrennan/explore-docker-python-flask-nextjs-typescript#readme"
+  "homepage": "https://github.com/TheRobBrennan/concourse#readme"
 }
