@@ -17,6 +17,7 @@
     "stop": "docker-compose stop",
     "storybook": "docker exec -it concourse_nextjs_1 npm run storybook",
     "storybook:build": "docker exec -it concourse_nextjs_1 npm run storybook:build",
+    "storybook:upgrade": "docker exec -it concourse_nextjs_1 npx sb@latest upgrade",
     "test": "npm run test:nextjs",
     "test:nextjs": "docker exec -it concourse_nextjs_1 npm test",
     "test:nextjs:coverage": "docker exec -it concourse_nextjs_1 npm run test:coverage",
