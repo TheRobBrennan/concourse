@@ -19,6 +19,8 @@
     "storybook:build": "docker exec -it concourse_nextjs_1 npm run storybook:build",
     "storybook:upgrade": "docker exec -it concourse_nextjs_1 npx sb@latest upgrade",
     "test": "npm run test:nextjs",
+    "test:coverage": "npm run test:nextjs:coverage",
+    "test:watch": "npm run test:nextjs:watch",
     "test:nextjs": "docker exec -it concourse_nextjs_1 npm test",
     "test:nextjs:coverage": "docker exec -it concourse_nextjs_1 npm run test:coverage",
     "test:nextjs:watch": "docker exec -it concourse_nextjs_1 npm run test:watchAll",

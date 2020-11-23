@@ -47,7 +47,9 @@ The following scripts are in `package.json` for convenience:
 - `destroy:global` - **WARNING: This removes all unused Docker containers, networks, volumes, and images not referenced by any containers on your system - including those that may have been created in other projects. Be careful!**
 - `storybook` - Assuming you have your Docker containers running, this script will start the Storybook application within the Next.js Docker container. Your Storybook application will be available at [http://localhost:6006](http://localhost:6006)
 - `storybook:build` - Assuming you have your Docker containers running, this script will build the static version of the Storybook application within the Next.js Docker container.
-- `test` - Assuming you have your Docker containers running, this script will run the Next.js tests within their respective containers.
+- `test` - Assuming you have your Docker containers running, this script will run the Next.js tests within the Next.js Docker container.
+- `test:coverage` - Assuming you have your Docker containers running, this script will run the `test:nextjs:coverage` tests within the Next.js Docker container.
+- `test:watch` - Assuming you have your Docker containers running, this script will run the test:nextjs:coverage tests within the Next.js Docker container.
 - `test:e2e` - This will launch our end-to-end (E2E) suite of tests; currently consisting of [Cypress](https://www.cypress.io) tests.
 - `test:e2e:flaps` - This will launch our end-to-end (E2E) flap tests; currently `test:e2e:cypress:flaps`
 - `test:e2e:cypress` - This will launch [Cypress](https://www.cypress.io) locally from your development machine.
