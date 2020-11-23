@@ -47,11 +47,6 @@ This project also contains several scripts to simplify developing your applicati
 The following scripts are in `package.json` for convenience:
 
 - `analyze` - This builds the Next.js application and generates two visual representations to explore and view the bundle sizes of the client application and server-side application
-
-![app/__screenshots__/bundle-analysis-example-client.png](app/__screenshots__/bundle-analysis-example-client.png)
-
-![app/__screenshots__/bundle-analysis-example-server.png](app/__screenshots__/bundle-analysis-example-server.png)
-
 - `start` - This launches the Dockerized application - all services defined in `./docker-compose.yml` - and can be enhanced to launch additional services as desired.
 - `start:clean` - This starts the entire Dockerized application - all services defined in `./docker-compose.yml` - with freshly built Docker images
 - `stop` - This stops all services defined in `./docker-compose.yml`
@@ -86,12 +81,10 @@ Your application should be available at [http://localhost:3000](http://localhost
 
 Please copy `./app/.env.local.sample` to `./app/.env` and then define the appropriate environment variables.
 
-If you are running the app within the Dockerized environment, please make sure that you have the Python Flask API pointing to the Docker service name of your application (e.g. `python-flask` in `docker-compose.yml`):
-
 ```sh
 # You must use NEXT_PUBLIC_ as a prefix if you'd like to make environment variables explicitly available to the web browser in a Next.js application
 # https://nextjs.org/docs/basic-features/environment-variables#exposing-environment-variables-to-the-browser
-NEXT_PUBLIC_FLASK_API="http://python-flask:5000/api/hello-world"
+NEXT_PUBLIC_FOO=
 ```
 
 ## Testing

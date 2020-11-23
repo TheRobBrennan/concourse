@@ -1,4 +1,4 @@
-This project explores working with [Python](https://www.python.org), [Flask](https://flask.palletsprojects.com/en/1.1.x/), [Next.js](https://nextjs.org), and [TypeScript](https://www.typescriptlang.org) within a Docker environment for local development.
+This project explores working with [Next.js](https://nextjs.org), [TypeScript](https://www.typescriptlang.org), [Storybook](https://storybook.js.org), and [Cypress](https://www.cypress.io) within a Docker environment for local development.
 
 # Local development
 
@@ -13,11 +13,7 @@ If you don't have [Node.js](https://nodejs.org/en/) or `npm` installed, you can 
 Once you have started your application:
 
 - The Next.js example is available at [http://localhost:3000](http://localhost:3000)
-  - If you run `npm run storybook`, the [Storybook](https://storybook.js.org) application will be available at [http://localhost:6006](http://localhost:6006) - which is a great tool for visually exploring and interacting with your React components outside of the Next.js application 🤓
-- The Python Flask example
-  - Web application is available at [http://0.0.0.0:5000](http://0.0.0.0:5000)
-  - API is available at [http://0.0.0.0:5000/api/hello-world](http://0.0.0.0:5000/api/hello-world)
-    - The Flask Swagger application is available at [http://0.0.0.0:5000/apidocs/](http://0.0.0.0:5000/apidocs/)
+  - If you run `npm run storybook`, the [Storybook](https://storybook.js.org) application will be available at [http://localhost:6006](http://localhost:6006) - which is a great tool for visually exploring and interacting with your React components outside of the [Next.js](https://nextjs.org) application 🤓
 - [Cypress](https://www.cypress.io) will execute all of the E2E tests to verify the app is working as expected
   - These tests can be viewed at [./apps/cypress/cypress/integration](./apps/cypress/cypress/integration)
   - Once your application has started, you will need to run these tests against the Docker container with `npm run test:e2e`.
@@ -27,16 +23,13 @@ Once you have started your application:
 
 We have a variety of tests available in this project:
 
-- Python Flask
-  - Our unit tests use Python's [unittest](https://docs.python.org/3/library/unittest.html) unit testing framework.
-    - A reference Python script has been created to test the Flask application using curl 🤓
-- Next.js
+- [Next.js](https://nextjs.org)
   - Our unit and integration tests use [Jest](https://jestjs.io) and [Enzyme](https://enzymejs.github.io/enzyme/).
   - Our end-to-end (E2E) tests use [Cypress](https://www.cypress.io) and are self-contained within the `apps/cypress` directory
 
-Once you have started your application, you can run both the Python and Next.js unit and integration tests with `npm run test` - which executes the appropriate tests within the appropriate Python or Next.js Docker container.
+Once you have started your application, you can run both the [Next.js](https://nextjs.org) unit and integration tests with `npm run test` - which executes the tests within an already-running [Next.js](https://nextjs.org) Docker container.
 
-The end-to-end (E2E) tests with [Cypress](https://www.cypress.io) can be run against the Docker container with `npm run test:e2e` - which will restart the [Cypress](https://www.cypress.io) container.
+The end-to-end (E2E) tests with [Cypress](https://www.cypress.io) can be run against the Docker container with `npm run test:e2e` - which will restart the [Cypress](https://www.cypress.io) container to ensure the latest testing environment is loaded before executing the test suite.
 
 For the best experience, you can also run the end-to-end (E2E) tests with [Cypress](https://www.cypress.io) locally with `npm run test:e2e:open` - which will launch the [Cypress](https://www.cypress.io) test runner and an instance of Google Chrome on your computer.
 
@@ -46,12 +39,7 @@ This project also contains several scripts to simplify developing your applicati
 
 The following scripts are in `package.json` for convenience:
 
-- `analyze` - This builds the Next.js application and generates two visual representations to explore and view the bundle sizes of the client application and server-side application
-
-![apps/nextjs-typescript-example-00/app/__screenshots__/bundle-analysis-example-client.png](apps/nextjs-typescript-example-00/app/__screenshots__/bundle-analysis-example-client.png)
-
-![apps/nextjs-typescript-example-00/app/__screenshots__/bundle-analysis-example-server.png](apps/nextjs-typescript-example-00/app/__screenshots__/bundle-analysis-example-server.png)
-
+- `analyze` - This builds the [Next.js](https://nextjs.org) application and generates two visual representations to explore and view the bundle sizes of the client application and server-side application
 - `start` - This launches the Dockerized application - all services defined in `./docker-compose.yml` - and can be enhanced to launch additional client apps as desired.
 - `start:clean` - This starts the entire Dockerized application - all services defined in `./docker-compose.yml` - with freshly built Docker images
 - `stop` - This stops all services defined in `./docker-compose.yml`
@@ -59,22 +47,20 @@ The following scripts are in `package.json` for convenience:
 - `destroy:global` - **WARNING: This removes all unused Docker containers, networks, volumes, and images not referenced by any containers on your system - including those that may have been created in other projects. Be careful!**
 - `storybook` - Assuming you have your Docker containers running, this script will start the Storybook application within the Next.js Docker container. Your Storybook application will be available at [http://localhost:6006](http://localhost:6006)
 - `storybook:build` - Assuming you have your Docker containers running, this script will build the static version of the Storybook application within the Next.js Docker container.
-- `test` - Assuming you have your Docker containers running, this script will test both Python and Next.js tests within their respective containers. This will fail if either Python Flask or Next.js has a failing test.
+- `test` - Assuming you have your Docker containers running, this script will run the Next.js tests within the Next.js Docker container.
+- `test:coverage` - Assuming you have your Docker containers running, this script will run the `test:nextjs:coverage` tests within the Next.js Docker container.
+- `test:watch` - Assuming you have your Docker containers running, this script will run the test:nextjs:coverage tests within the Next.js Docker container.
 - `test:e2e` - This will launch our end-to-end (E2E) suite of tests; currently consisting of [Cypress](https://www.cypress.io) tests.
 - `test:e2e:flaps` - This will launch our end-to-end (E2E) flap tests; currently `test:e2e:cypress:flaps`
 - `test:e2e:cypress` - This will launch [Cypress](https://www.cypress.io) locally from your development machine.
 - `test:e2e:cypress:flaps` - This will build a fresh [Cypress](https://www.cypress.io) service and then run the script to check a single test file for flaps.
-- `test:nextjs` - Assuming you have your Docker containers running, this command will connect to the Next.js container and run the test suite
-- `test:nextjs:coverage` - Assuming you have your Docker containers running, this command will connect to the Next.js container to run the test suite and generate a code coverage report.
-- `test:nextjs:watch` - Assuming you have your Docker containers running, this command will connect to the Next.js container to run Jest in --watchAll mode. This will re-run your tests every time a file is changed.
-- `test:python:flask` - Assuming you have your Docker containers running, this command will connect to the Python Flask container and run the test suite
-- `test:python:flask:curl` - Assuming you have your Docker containers running, this command will connect to the Python Flask container and run the curl test script.
+- `test:nextjs` - Assuming you have your Docker containers running, this command will connect to the [Next.js](https://nextjs.org) container and run the test suite
+- `test:nextjs:coverage` - Assuming you have your Docker containers running, this command will connect to the [Next.js](https://nextjs.org) container to run the test suite and generate a code coverage report.
+- `test:nextjs:watch` - Assuming you have your Docker containers running, this command will connect to the [Next.js](https://nextjs.org) container to run Jest in --watchAll mode. This will re-run your tests every time a file is changed.
 
 ## Visual Studio Code
 
-If you are using [VS Code](https://code.visualstudio.com), you can install the free [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension, which includes a bunch of useful features and functionality - including a debugger.
-
-Suggested extensions for [VS Code](https://code.visualstudio.com) are available for you at `.vscode/extensions.json` - all you need to do is click on `Extensions` in the left sidebar and search for `@recommended`
+If you are using [VS Code](https://code.visualstudio.com), suggested extensions for [VS Code](https://code.visualstudio.com) are available for you at `.vscode/extensions.json` - all you need to do is click on `Extensions` in the left sidebar and search for `@recommended`
 
 ### Debugging
 
@@ -87,19 +73,8 @@ If you are using [VS Code](https://code.visualstudio.com), you can debug this ap
 To debug your application by attaching [VS Code](https://code.visualstudio.com) to a running Docker container:
 
 - Make sure your application is running within the Dockerized environment (see `Local development` above)
-- Click on `Docker` in the left sidebar, right-click on the container named `explore-docker-python-flask-nextjs-typescript_web_1`, and select `Attach Visual Studio Code`
+- Click on `Docker` in the left sidebar, right-click on the container you wish to debug, and select `Attach Visual Studio Code`
   ![.vscode/__screenshots__/docker-attach-vscode-to-container.png](.vscode/__screenshots__/docker-attach-vscode-to-container.png)
+- Run the debugger with your desired launch configuration and enable breakpoints to your heart's content.
 
 With VS Code running within your Docker container, you are free to do whatever you'd like. Any changes you make to the code will be reflected in your local directory thanks to the volume mapping we have defined in `.docker-compose.yml`
-
-If you make any changes - such as installing extensions, etc - you can see those changes in `./apps/flask-example-00/.vscode/settings.json` and commit as desired.
-
-Debug configurations for [VS Code](https://code.visualstudio.com) specific to a Docker container are in `./apps/flask-example-00/.vscode/launch.json` - with `Python: Debug app in container` demonstrating how to connect to an example Python Flask application already running within the Docker container 🤓
-
-![.vscode/__screenshots__/vscode-extensions-inside-attached-container.png](.vscode/__screenshots__/vscode-extensions-inside-attached-container.png)
-
-- Click on `Run` in the left sidebar and select the launch configuration you would like to use (e.g. `Python: Debug app in container`)
-  - Select breakpoint(s) to verify that your debugger has connected successfully
-    - You may need to make a minor change (such as saving the `app.py` file) for breakpoints and the debugger to take effect
-
-![.vscode/__screenshots__/vscode-debug-configuration-inside-attached-container.png](.vscode/__screenshots__/vscode-debug-configuration-inside-attached-container.png)

@@ -1,6 +1,0 @@
-flask
-redis
-debugpy
-flask-restful
-setuptools
-flasgger
