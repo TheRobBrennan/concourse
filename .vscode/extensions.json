@@ -1,6 +1,5 @@
 {
   "recommendations": [
-    "ms-python.python",
     "ms-azuretools.vscode-docker",
     "github.vscode-pull-request-github",
     "eamodio.gitlens",
