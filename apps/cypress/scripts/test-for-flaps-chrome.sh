@@ -9,7 +9,7 @@
 INT_TEST=${1:-cypress/integration/page.index.spec.js}
 
 # Specify the number of iterations to run
-ITERATIONS=${2:-100}
+ITERATIONS=${2:-5}
 
 # Initialize success and fail counters
 SUCCESS=0
