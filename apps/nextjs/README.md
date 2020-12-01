@@ -103,7 +103,7 @@ Your application should be available at [http://localhost:3000](http://localhost
 
 ## Environment variables
 
-Please copy `./app/.env.local.sample` to `./app/.env` and then define the appropriate environment variables.
+Please copy `./app/.env.local.sample` to `./app/.env.local` and then define the appropriate environment variables.
 
 ```sh
 # You must use NEXT_PUBLIC_ as a prefix if you'd like to make environment variables explicitly available to the web browser in a Next.js application
