@@ -58,6 +58,15 @@ The following scripts are in `package.json` for convenience:
 - `test:nextjs:coverage` - Assuming you have your Docker containers running, this command will connect to the [Next.js](https://nextjs.org) container to run the test suite and generate a code coverage report.
 - `test:nextjs:watch` - Assuming you have your Docker containers running, this command will connect to the [Next.js](https://nextjs.org) container to run Jest in --watchAll mode. This will re-run your tests every time a file is changed.
 
+Additional scripts have been created to explore and follow along the official [Create a Next.js App](https://nextjs.org/learn/basics/create-nextjs-app) tutorial:
+
+- `nextjs-blog:build` - This stops any running services and destroys containers before performing a fresh build of the project.
+- `nextjs-blog:start` - This launches the Dockerized application.
+- `nextjs-blog:start:clean` - This starts the entire Dockerized application with freshly built Docker images
+- `nextjs-blog:stop` - This stops all services
+- `nextjs-blog:destroy` - This removes all stopped containers (services)
+- `nextjs-blog:destroy:global` - **WARNING: This removes all unused Docker containers, networks, volumes, and images not referenced by any containers on your system - including those created in other projects. Be careful!**
+
 ## Visual Studio Code
 
 If you are using [VS Code](https://code.visualstudio.com), suggested extensions for [VS Code](https://code.visualstudio.com) are available for you at `.vscode/extensions.json` - all you need to do is click on `Extensions` in the left sidebar and search for `@recommended`

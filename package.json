@@ -31,7 +31,13 @@
     "test:e2e:cypress:flaps": "npm run test:e2e:cypress && docker-compose run cypress scripts/test-for-flaps.sh",
     "test:e2e:cypress:open": "cd apps/cypress && npm start",
     "destroy": "docker-compose rm -f -v",
-    "destroy:global": "docker system prune -f --volumes && docker image prune -a -f"
+    "destroy:global": "docker system prune -f --volumes && docker image prune -a -f",
+    "nextjs-blog:build": "cd apps/nextjs-blog && npm run build",
+    "nextjs-blog:start": "cd apps/nextjs-blog && npm run start",
+    "nextjs-blog:start:clean": "cd apps/nextjs-blog && npm run start:clean",
+    "nextjs-blog:stop": "cd apps/nextjs-blog && npm run stop",
+    "nextjs-blog:destroy": "cd apps/nextjs-blog && npm run destroy",
+    "nextjs-blog:destroy:global": "cd apps/nextjs-blog && npm run destroy:global"
   },
   "repository": {
     "type": "git",
