@@ -2,6 +2,30 @@
 
 For this project, we are going to be using [create-next-app](https://nextjs.org/docs/api-reference/create-next-app) to generate a [Next.js](https://nextjs.org) app that uses [TypeScript](https://www.typescriptlang.org).
 
+DEMO: [https://concourse-nextjs.vercel.app](https://concourse-nextjs.vercel.app)
+
+EXAMPLE: Default page - `/`
+
+![__screenshots__/screenshot-00.png](__screenshots__/screenshot-00.png)
+
+EXAMPLE: About page - `/about`
+
+![__screenshots__/screenshot-01.png](__screenshots__/screenshot-01.png)
+
+EXAMPLE: Users list page - `/users`
+
+![__screenshots__/screenshot-02.png](__screenshots__/screenshot-02.png)
+
+EXAMPLE: Detail view for a specific user - `/users/[id]`
+
+![__screenshots__/screenshot-03.png](__screenshots__/screenshot-03.png)
+
+EXAMPLE: API response from `/api/ping`
+![__screenshots__/screenshot-api-01.png](__screenshots__/screenshot-api-01.png)
+
+EXAMPLE: API response from `/api/users`
+![__screenshots__/screenshot-api-00.png](__screenshots__/screenshot-api-00.png)
+
 # Local development
 
 To develop this application on your machine, you will need to have Docker and [Node.js](https://nodejs.org/en/) installed.
