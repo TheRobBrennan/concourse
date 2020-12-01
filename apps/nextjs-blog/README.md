@@ -2,6 +2,12 @@ This example is based on the official [Create a Next.js App](https://nextjs.org/
 
 # Getting started
 
+This is an example [Next.js](https://nextjs.org/) app which uses [TypeScript](https://www.typescriptlang.org) as well as blog posts written as [Markdown](https://www.markdownguide.org) text files.
+
+![__screenshots__/screenshot.png](__screenshots__/screenshot.png)
+
+DEMO: [https://concourse-nextjs-blog.vercel.app](https://concourse-nextjs-blog.vercel.app)
+
 ## Cheat sheet
 
 The following commands were executed while following along with the [Create a Next.js App](https://nextjs.org/learn/basics/create-nextjs-app) tutorial:
