@@ -1,5 +1,4 @@
-apps/flask-example-00/__pycache__
 apps/cypress/node_modules
 apps/cypress/cypress/videos
-apps/flask-example-00/resources/api/__pycache__/
-apps/flask-example-00/resources/__pycache__/
+apps/nextjs/app/storybook-static
+apps/nextjs/app/build-storybook.log
