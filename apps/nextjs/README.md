@@ -108,7 +108,7 @@ Please copy `./app/.env.local.sample` to `./app/.env` and then define the approp
 ```sh
 # You must use NEXT_PUBLIC_ as a prefix if you'd like to make environment variables explicitly available to the web browser in a Next.js application
 # https://nextjs.org/docs/basic-features/environment-variables#exposing-environment-variables-to-the-browser
-NEXT_PUBLIC_FOO=
+CHROMATIC_PROJECT_TOKEN=<YOUR-CHROMATIC-PROJECT-TOKEN>
 ```
 
 ## Testing
