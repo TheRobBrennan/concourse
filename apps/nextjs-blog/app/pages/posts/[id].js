@@ -25,6 +25,8 @@ export default function Post({ postData }) {
 
 // getStaticPaths will return an array of possible values for id
 export async function getStaticPaths() {
+  // IMPORTANT: You should not fetch an API Route from getStaticProps or getStaticPaths. Instead, write your server-side code directly in getStaticProps or getStaticPaths (or call a helper function).
+
   const paths = getAllPostIds()
 
   // paths will be an array that looks like this:
@@ -51,6 +53,8 @@ export async function getStaticPaths() {
 
 // getStaticProps will fetch necessary data for the post with the supplied parameters
 export async function getStaticProps({ params }) {
+  // IMPORTANT: You should not fetch an API Route from getStaticProps or getStaticPaths. Instead, write your server-side code directly in getStaticProps or getStaticPaths (or call a helper function).
+
   const postData = await getPostData(params.id)
   return {
     props: {
