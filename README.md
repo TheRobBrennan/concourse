@@ -44,9 +44,12 @@ The following scripts are in `package.json` for convenience:
 - `start:clean` - This starts the entire Dockerized application - all services defined in `./docker-compose.yml` - with freshly built Docker images
 - `stop` - This stops all services defined in `./docker-compose.yml`
 - `destroy` - This removes all stopped containers (services) as defined in `./docker-compose.yml`
-- `destroy:global` - **WARNING: This removes all unused Docker containers, networks, volumes, and images not referenced by any containers on your system - including those that may have been created in other projects. Be careful!**
+- `destroy:global`
+  - **WARNING: This removes all unused Docker containers, networks, volumes, and images not referenced by any containers on your system - including those that may have been created in other projects. Be careful!**
 - `storybook` - Assuming you have your Docker containers running, this script will start the Storybook application within the Next.js Docker container. Your Storybook application will be available at [http://localhost:6006](http://localhost:6006)
 - `storybook:build` - Assuming you have your Docker containers running, this script will build the static version of the Storybook application within the Next.js Docker container.
+- `storybook:publish` - This script will publish the Storybook application to [Chromatic](https://www.chromatic.com/)
+  - **WARNING: This script must have your application and its dependencies installed locally in order to run!**
 - `test` - Assuming you have your Docker containers running, this script will run the Next.js tests within the Next.js Docker container.
 - `test:coverage` - Assuming you have your Docker containers running, this script will run the `test:nextjs:coverage` tests within the Next.js Docker container.
 - `test:watch` - Assuming you have your Docker containers running, this script will run the test:nextjs:coverage tests within the Next.js Docker container.

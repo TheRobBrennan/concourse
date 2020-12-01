@@ -21,10 +21,13 @@ EXAMPLE: Detail view for a specific user - `/users/[id]`
 ![__screenshots__/screenshot-03.png](__screenshots__/screenshot-03.png)
 
 EXAMPLE: API response from `/api/ping`
-![__screenshots__/screenshot-api-01.png](__screenshots__/screenshot-api-01.png)
+![__screenshots__/screenshot-api-00.png](__screenshots__/screenshot-api-00.png)
 
 EXAMPLE: API response from `/api/users`
-![__screenshots__/screenshot-api-00.png](__screenshots__/screenshot-api-00.png)
+![__screenshots__/screenshot-api-01.png](__screenshots__/screenshot-api-01.png)
+
+EXAMPLE: Storybook
+![__screenshots__/screenshot-storybook-00.png](__screenshots__/screenshot-storybook-00.png)
 
 # Local development
 
@@ -103,12 +106,12 @@ Your application should be available at [http://localhost:3000](http://localhost
 
 ## Environment variables
 
-Please copy `./app/.env.local.sample` to `./app/.env` and then define the appropriate environment variables.
+Please copy `./app/.env.local.sample` to `./app/.env.local` and then define the appropriate environment variables.
 
 ```sh
 # You must use NEXT_PUBLIC_ as a prefix if you'd like to make environment variables explicitly available to the web browser in a Next.js application
 # https://nextjs.org/docs/basic-features/environment-variables#exposing-environment-variables-to-the-browser
-NEXT_PUBLIC_FOO=
+CHROMATIC_PROJECT_TOKEN=<YOUR-CHROMATIC-PROJECT-TOKEN>
 ```
 
 ## Testing
