@@ -21,10 +21,13 @@ EXAMPLE: Detail view for a specific user - `/users/[id]`
 ![__screenshots__/screenshot-03.png](__screenshots__/screenshot-03.png)
 
 EXAMPLE: API response from `/api/ping`
-![__screenshots__/screenshot-api-01.png](__screenshots__/screenshot-api-01.png)
+![__screenshots__/screenshot-api-00.png](__screenshots__/screenshot-api-00.png)
 
 EXAMPLE: API response from `/api/users`
-![__screenshots__/screenshot-api-00.png](__screenshots__/screenshot-api-00.png)
+![__screenshots__/screenshot-api-01.png](__screenshots__/screenshot-api-01.png)
+
+EXAMPLE: Storybook
+![__screenshots__/screenshot-storybook-00.png](__screenshots__/screenshot-storybook-00.png)
 
 # Local development
 
