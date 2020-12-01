@@ -7,3 +7,4 @@ Checkpoints:
 - 1:06 - Assets, Metadata, and CSS complete.
 - 1:34 - Pre-rendering and Data Fetching complete.
 - 2:07 - Dynamic routes complete.
+- 2:13 - API Routes complete.
