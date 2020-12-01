@@ -6,3 +6,4 @@ Checkpoints:
 - 0:42 - Navigate between pages using client-side navigation
 - 1:06 - Assets, Metadata, and CSS complete.
 - 1:34 - Pre-rendering and Data Fetching complete.
+- 2:07 - Dynamic routes complete.
