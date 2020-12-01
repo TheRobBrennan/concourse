@@ -1,4 +1,3 @@
-import React from "react"
 export interface IProps {
   color: string
   onClick?: (color: string) => void
