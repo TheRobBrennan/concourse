@@ -1,10 +1,17 @@
 This is a starter template for [Learn Next.js](https://nextjs.org/learn).
 
-Checkpoints:
+To add [TypeScript](https://www.typescriptlang.org) support to your [Next.js](https://nextjs.org) app:
 
-- 0:33 - Initial creation of a new Next.js app that is ready for development with Docker. README and scripts have been created.
-- 0:42 - Navigate between pages using client-side navigation
-- 1:06 - Assets, Metadata, and CSS complete.
-- 1:34 - Pre-rendering and Data Fetching complete.
-- 2:07 - Dynamic routes complete.
-- 2:13 - API Routes complete.
+```sh
+# Create an empty TypeScript configuration file (within the apps/nextjs-blog/app directory in this example)
+$ touch tsconfig.json
+
+# Restart your development server and you should see a warning like:
+# It looks like you're trying to use TypeScript but do not have the required package(s) installed.
+
+# Install TypeScript
+$ npm install --save-dev typescript @types/react @types/node
+
+# Restart your development server
+# Next.js will populate the tsconfig.json file for and create next-env.d.ts to ensure Next.js types are picked up by the TypeScript compiler
+```
