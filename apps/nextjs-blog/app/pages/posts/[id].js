@@ -43,6 +43,8 @@ export async function getStaticPaths() {
 
   return {
     paths,
+    // If fallback is set to a false, a 404 response will be returned if the request is for a page does not exist.
+    // See https://nextjs.org/docs/basic-features/data-fetching#the-fallback-key-required for details on how you might use fallback
     fallback: false,
   }
 }
