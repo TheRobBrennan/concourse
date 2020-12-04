@@ -30,10 +30,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/generalui/ascent-maui-wayfinding.git"
+    "url": "git+https://github.com/TheRobBrennan/concourse.git"
   },
   "bugs": {
-    "url": "https://github.com/generalui/ascent-maui-wayfinding/issues"
+    "url": "https://github.com/TheRobBrennan/concourse/issues"
   },
-  "homepage": "https://github.com/generalui/ascent-maui-wayfinding#readme"
+  "homepage": "https://github.com/TheRobBrennan/concourse#readme"
 }
