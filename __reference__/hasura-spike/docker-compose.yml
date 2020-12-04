@@ -1,0 +1,39 @@
+version: "3.6"
+services:
+  postgres:
+    image: postgres:12
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgrespassword
+  graphql-engine:
+    image: hasura/graphql-engine:v1.3.3
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "postgres"
+    restart: always
+    env_file:
+      - ./.env
+  nextjs:
+    ports:
+      - 3000:3000
+      - 9229:9229
+      - 6006:6006
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/usr/src/app
+      # Prevent the node_modules and .next folders in the Docker container from being accidentally overwritten with our initial mapping of our local directory to /usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/.next
+    env_file:
+      - ./app/.env
+    depends_on:
+      - graphql-engine
+
+# For more information on how volumes work, please see https://docs.docker.com/storage/volumes/
+volumes:
+  db_data:

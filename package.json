@@ -38,7 +38,14 @@
     "nextjs-blog:start:clean": "cd apps/nextjs-blog && npm run start:clean",
     "nextjs-blog:stop": "cd apps/nextjs-blog && npm run stop",
     "nextjs-blog:destroy": "cd apps/nextjs-blog && npm run destroy",
-    "nextjs-blog:destroy:global": "cd apps/nextjs-blog && npm run destroy:global"
+    "nextjs-blog:destroy:global": "cd apps/nextjs-blog && npm run destroy:global",
+    "hasura-spike:build": "cd __reference__/hasura-spike && npm run build",
+    "hasura-spike:start": "cd __reference__/hasura-spike && npm run start",
+    "hasura-spike:start:clean": "cd __reference__/hasura-spike && npm run start:clean",
+    "hasura-spike:stop": "cd __reference__/hasura-spike && npm run stop",
+    "hasura-spike:db:migrate": "cd __reference__/hasura-spike && npm run db:migrate",
+    "hasura-spike:destroy": "cd __reference__/hasura-spike && npm run destroy",
+    "hasura-spike:destroy:global": "cd __reference__/hasura-spike && npm run destroy:global"
   },
   "repository": {
     "type": "git",
