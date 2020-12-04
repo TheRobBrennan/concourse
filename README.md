@@ -70,6 +70,50 @@ Additional scripts have been created to explore and follow along the official [C
 - `nextjs-blog:destroy` - This removes all stopped containers (services)
 - `nextjs-blog:destroy:global` - **WARNING: This removes all unused Docker containers, networks, volumes, and images not referenced by any containers on your system - including those created in other projects. Be careful!**
 
+## SPIKE: Back-end API - Hasura
+
+**IMPORTANT** Please be sure to follow the initial setup guide in `__reference__/hasura-spike/README.md`.
+
+You will need to create:
+
+- An Auth0 account with
+  - An Auth0 tenant
+  - An Auth0 single page application with appropriate callback URLs
+  - An Auth0 API
+  - Auth0 rules for `hasura-jwt-claim` and `upsert-user`
+- Copy `__reference__/hasura-spike/.env.sample` to `__reference__/hasura-spike/.env`
+  - `HASURA_GRAPHQL_JWT_SECRET` needs to be updated to the configuration specific to your Auth0 domain at https://hasura.io/jwt-config/
+- Copy `__reference__/hasura-spike/app/.env.example` to `__reference__/hasura-spike/app/.env`
+- Use `ngrok` to make your locally running GraphQL API available to the outside world
+  - Be sure to update your Auth0 `upsert-user` rule to point to your locally hosted GraphQL API
+- Update `__reference__/hasura-spike/app/.env`
+  - `GRAPHQL_WEB_ENDPOINT` and `GRAPHQL_WEBSOCKET_ENDPOINT` need to point to your locally hosted GraphQL API
+  - `AUTH0_AUDIENCE` needs to be updated with your defined audience (`https://hasura.io/learn` if you're following the steps in the README)
+  - `AUTH0_DOMAIN` will look something like `my-auth0-tenant.us.auth0.com`
+  - `AUTH0_CLIENT_ID`
+  - `AUTH0_CLIENT_SECRET`
+- Once you have the application started with `npm run hasura-spike:start`, you will need to run the initial database setup and migration scripts from another terminal window with `npm run hasura-spike:db:migrate`
+
+The following scripts have been added for working with the demo project exploring [Hasura](https://hasura.io) as a back-end API:
+
+- `hasura-spike:build` - This stops any running services and destroys containers before performing a fresh build of the project.
+- `hasura-spike:start` - This launches the Dockerized application.
+- `hasura-spike:start:clean` - This starts the entire Dockerized application with freshly built Docker images
+- `hasura-spike:stop` - This stops all services
+- `hasura-spike:db:migrate` - This runs database migration scripts against the Hasura endpoint specified in `__reference__/hasura-spike/config.yaml`
+
+  - After running `hasura:db:migrate`, your Hasura console should look like:
+    ![__reference__/hasura-spike/__screenshots__/hasura-console-after-running-db-migrate.png](__reference__/hasura-spike/__screenshots__/hasura-console-after-running-db-migrate.png)
+
+- `hasura-spike:destroy` - This removes all stopped containers (services)
+- `hasura-spike:destroy:global` - **WARNING: This removes all unused Docker containers, networks, volumes, and images not referenced by any containers on your system - including those created in other projects. Be careful!**
+
+Once you have started your application:
+
+- The Hasura Console is available at [http://localhost:8080/console](http://localhost:8080/console)
+
+!["__reference__/hasura-spike/__screenshots__/hasura-console-fresh-install.png"](__reference__/hasura-spike/__screenshots__/hasura-console-fresh-install.png)
+
 ## Visual Studio Code
 
 If you are using [VS Code](https://code.visualstudio.com), suggested extensions for [VS Code](https://code.visualstudio.com) are available for you at `.vscode/extensions.json` - all you need to do is click on `Extensions` in the left sidebar and search for `@recommended`
