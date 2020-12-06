@@ -114,6 +114,23 @@ Once you have started your application:
 
 !["__reference__/hasura-spike/__screenshots__/hasura-console-fresh-install.png"](__reference__/hasura-spike/__screenshots__/hasura-console-fresh-install.png)
 
+## SPIKE: Next.js localization with next-i18next
+
+This spike builds upon previous work from the `nextjs-typescript-linting-spike` and explores how we might use [next-i18next](https://github.com/isaachinman/next-i18next) for handling translations within our project.
+
+The following scripts have been created:
+
+- `nextjs-localization-spike:build` - This stops any running services and destroys containers before performing a fresh build of the project.
+- `nextjs-localization-spike:start` - This launches the Dockerized application.
+- `nextjs-localization-spike:start:clean` - This starts the entire Dockerized application with freshly built Docker images
+- `nextjs-localization-spike:stop` - This stops all services
+- `nextjs-localization-spike:destroy` - This removes all stopped containers (services)
+- `nextjs-localization-spike:destroy:global` - **WARNING: This removes all unused Docker containers, networks, volumes, and images not referenced by any containers on your system - including those created in other projects. Be careful!**
+- `nextjs-localization-spike:test` - Assuming you have your Docker containers running, this command will connect to the Next.js container and run the test suite
+- `nextjs-localization-spike:test:update-snapshots` - Assuming you have your Docker containers running, this command will connect to the Next.js container and update all snapshots while running the current test suite
+- `nextjs-localization-spike:test:coverage` - Assuming you have your Docker containers running, this command will connect to the Next.js container to run the test suite and generate a code coverage report.
+- `nextjs-localization-spike:test:watch` - Assuming you have your Docker containers running, this command will connect to the Next.js container to run Jest in --watchAll mode. This will re-run your tests every time a file is changed.
+
 ## Visual Studio Code
 
 If you are using [VS Code](https://code.visualstudio.com), suggested extensions for [VS Code](https://code.visualstudio.com) are available for you at `.vscode/extensions.json` - all you need to do is click on `Extensions` in the left sidebar and search for `@recommended`

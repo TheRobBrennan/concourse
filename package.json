@@ -45,7 +45,17 @@
     "hasura-spike:stop": "cd __reference__/hasura-spike && npm run stop",
     "hasura-spike:db:migrate": "cd __reference__/hasura-spike && npm run db:migrate",
     "hasura-spike:destroy": "cd __reference__/hasura-spike && npm run destroy",
-    "hasura-spike:destroy:global": "cd __reference__/hasura-spike && npm run destroy:global"
+    "hasura-spike:destroy:global": "cd __reference__/hasura-spike && npm run destroy:global",
+    "nextjs-localization-spike:build": "cd __reference__/nextjs-localization-spike && npm run build",
+    "nextjs-localization-spike:start": "cd __reference__/nextjs-localization-spike && npm run start",
+    "nextjs-localization-spike:start:clean": "cd __reference__/nextjs-localization-spike && npm run start:clean",
+    "nextjs-localization-spike:stop": "cd __reference__/nextjs-localization-spike && npm run stop",
+    "nextjs-localization-spike:destroy": "cd __reference__/nextjs-localization-spike && npm run destroy",
+    "nextjs-localization-spike:destroy:global": "cd __reference__/nextjs-localization-spike && npm run destroy:global",
+    "nextjs-localization-spike:test": "docker exec -it nextjs-localization-spike_nextjs_1 npm test",
+    "nextjs-localization-spike:test:update-snapshots": "docker exec -it nextjs-localization-spike_nextjs_1 npm test -- -u",
+    "nextjs-localization-spike:test:coverage": "docker exec -it nextjs-localization-spike_nextjs_1 npm run test:coverage",
+    "nextjs-localization-spike:test:watch": "docker exec -it nextjs-localization-spike_nextjs_1 npm run test:watchAll"
   },
   "repository": {
     "type": "git",
