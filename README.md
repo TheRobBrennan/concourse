@@ -70,7 +70,7 @@ Additional scripts have been created to explore and follow along the official [C
 - `nextjs-blog:destroy` - This removes all stopped containers (services)
 - `nextjs-blog:destroy:global` - **WARNING: This removes all unused Docker containers, networks, volumes, and images not referenced by any containers on your system - including those created in other projects. Be careful!**
 
-## SPIKE: Back-end API - Using Hasura Cloud within a local Dockerized environment
+## SPIKE: Back-end API - Hasura Cloud using a Heroku PostgreSQL database
 
 This demo is intended to explore using [Hasura Cloud](https://hasura.io/cloud/) with a [PostgreSQL database](https://www.heroku.com/postgres) hosted on [Heroku](https://www.heroku.com/postgres).
 
