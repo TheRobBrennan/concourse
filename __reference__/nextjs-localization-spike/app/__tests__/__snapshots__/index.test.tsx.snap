@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The default page should match the snapshot 1`] = `
+Array [
+  <main>
+    <h1>
+      h1
+      <hr />
+    </h1>
+    <div>
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        change-locale
+      </button>
+      <button
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        type="button"
+      >
+        to-second-page
+      </button>
+    </div>
+  </main>,
+  <footer>
+    <p>
+      description
+    </p>
+    <p>
+      next-i18next v
+      7.0.1
+    </p>
+  </footer>,
+]
+`;

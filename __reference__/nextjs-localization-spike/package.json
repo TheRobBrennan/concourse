@@ -1,0 +1,24 @@
+{
+  "name": "nextjs-localization",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "Rob Brennan <rob@therobbrennan.com> (therobbrennan.com)",
+  "license": "ISC",
+  "scripts": {
+    "build": "npm run stop && npm run destroy && npm run start:clean",
+    "start": "docker-compose up",
+    "start:clean": "docker-compose up --build",
+    "stop": "docker-compose stop",
+    "destroy": "docker-compose rm -f -v",
+    "destroy:global": "docker system prune -f --volumes && docker image prune -a -f"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRobBrennan/concourse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheRobBrennan/concourse/issues"
+  },
+  "homepage": "https://github.com/TheRobBrennan/concourse#readme"
+}
