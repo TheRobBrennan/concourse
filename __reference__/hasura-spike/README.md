@@ -35,22 +35,7 @@ Once you complete the `## Environment variables` and `## Start the application`,
 
 ## Environment variables
 
-Please copy `./.env.local.sample` to `./.env` **AND** `./app/.env.example` to `./app/.env` before you define the appropriate environment variables.
-
-As of this writing, current environment variables that need to be defined for Hasura's GraphQL engine include:
-
-```sh
-HASURA_GRAPHQL_DATABASE_URL="postgres://postgres:postgrespassword@postgres:5432/postgres"
-## Enable the console served by server
-HASURA_GRAPHQL_ENABLE_CONSOLE="true"
-## Enable debugging mode. It is recommended to disable this in production
-HASURA_GRAPHQL_DEV_MODE="true"
-HASURA_GRAPHQL_ENABLED_LOG_TYPES="startup, http-log, webhook-log, websocket-log, query-log"
-HASURA_GRAPHQL_ADMIN_SECRET=myhasura
-
-# Generate an Auth0 JWT secret by going to https://hasura.io/jwt-config/
-HASURA_GRAPHQL_JWT_SECRET='{"type": "RS512", "key": "-----BEGIN CERTIFICATE-----\n<EXAMPLE>\n-----END CERTIFICATE-----"}'
-```
+Please copy `./app/.env.example` to `./app/.env` before you define the appropriate environment variables.
 
 As of this writing, current environment variables that need to be defined for the Next.js example app include:
 
@@ -58,19 +43,23 @@ As of this writing, current environment variables that need to be defined for th
 DOMAIN=http://localhost:3000
 
 # These GraphQL endpoints must be externally accessible
-GRAPHQL_WEB_ENDPOINT=https://5ab4f6eaa674.ngrok.io/v1/graphql
-GRAPHQL_WEBSOCKET_ENDPOINT=wss://5ab4f6eaa674.ngrok.io/v1/graphql
+GRAPHQL_WEB_ENDPOINT=https://demo-hc-spike.hasura.app/v1/graphql
+GRAPHQL_WEBSOCKET_ENDPOINT=wss://demo-hc-spike.hasura.app/v1/graphql
 
 # Auth0 API
-AUTH0_AUDIENCE=
+AUTH0_AUDIENCE=https://hasura.io/learn
 
 # Auth0 Application
-AUTH0_DOMAIN=
+AUTH0_DOMAIN=myapp.us.auth0.com
 AUTH0_CLIENT_ID=
 AUTH0_CLIENT_SECRET=
 REDIRECT_URI=http://localhost:3000/api/callback
 POST_LOGOUT_REDIRECT_URI=http://localhost:3000/
 SESSION_COOKIE_SECRET=BXyv4qDtBKYxJtLopfY7nj75sJg3p2Ka
+
+# Hasura Cloud environment variables - Generate the JWT secret by visiting https://hasura.io/jwt-config/
+HASURA_GRAPHQL_ADMIN_SECRET=myhasura
+HASURA_GRAPHQL_JWT_SECRET='{"type": "RS512", "key": "-----BEGIN CERTIFICATE-----\nYOUR-CERTIFICATE\n-----END CERTIFICATE-----"}'
 ```
 
 ## Start the application
