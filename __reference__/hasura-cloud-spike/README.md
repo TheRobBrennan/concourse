@@ -105,8 +105,8 @@ function (user, context, callback) {
   const nickname = user.nickname;
 
   // Modify with your Hasura admin secret and URL to the application
-  const admin_secret = "";
-  const url = "https://hasura-cloud-spike.hasura.app/v1/graphql";
+  const admin_secret = "myhasura";
+  const url = "https://demo-hc-spike.hasura.app/v1/graphql";
 
   // Define your GraphQL mutation and query variables object
   const query = `mutation($userId: String!, $nickname: String) {
@@ -144,7 +144,7 @@ Then, we need to:
 - Update our Hasura configuration file - `__reference__/hasura-cloud-spike/config.yaml` to refer to our new Hasura Cloud application:
 
   ```yml
-  endpoint: https://hasura-cloud-spike.hasura.app
+  endpoint: https://demo-hc-spike.hasura.app
   ```
 
 - Define our environment variables - See `## Environment variables` below
@@ -167,19 +167,23 @@ As of this writing, current environment variables that need to be defined for th
 DOMAIN=http://localhost:3000
 
 # These GraphQL endpoints must be externally accessible
-GRAPHQL_WEB_ENDPOINT=https://hasura-cloud-spike.hasura.app/v1/graphql
-GRAPHQL_WEBSOCKET_ENDPOINT=wss://hasura-cloud-spike.hasura.app/v1/graphql
+GRAPHQL_WEB_ENDPOINT=https://demo-hc-spike.hasura.app/v1/graphql
+GRAPHQL_WEBSOCKET_ENDPOINT=wss://demo-hc-spike.hasura.app/v1/graphql
 
 # Auth0 API
 AUTH0_AUDIENCE=https://hasura.io/learn
 
 # Auth0 Application
-AUTH0_DOMAIN=my-tenant.us.auth0.com
-AUTH0_CLIENT_ID=<YOUR_AUTH0_CLIENT_ID>
-AUTH0_CLIENT_SECRET=<YOUR_AUTH0_CLIENT_SECRET>
+AUTH0_DOMAIN=myapp.us.auth0.com
+AUTH0_CLIENT_ID=
+AUTH0_CLIENT_SECRET=
 REDIRECT_URI=http://localhost:3000/api/callback
 POST_LOGOUT_REDIRECT_URI=http://localhost:3000/
 SESSION_COOKIE_SECRET=BXyv4qDtBKYxJtLopfY7nj75sJg3p2Ka
+
+# Hasura Cloud environment variables - Generate the JWT secret by visiting https://hasura.io/jwt-config/
+HASURA_GRAPHQL_ADMIN_SECRET=myhasura
+HASURA_GRAPHQL_JWT_SECRET='{"type": "RS512", "key": "-----BEGIN CERTIFICATE-----\nYOUR-CERTIFICATE\n-----END CERTIFICATE-----"}'
 ```
 
 ## Start the application

@@ -79,21 +79,77 @@ This demo is intended to explore using [Hasura Cloud](https://hasura.io/cloud/) 
 You will need to create:
 
 - An Auth0 account with
+
   - An Auth0 tenant
   - An Auth0 single page application with appropriate callback URLs
+    - `Allowed Callback URLs` - `http://localhost:3000/callback, http://localhost:3000/api/callback`
+    - `Allowed Logout URLs` - `http://localhost:3000/, http://localhost:3000/callback, http://localhost:3000/api/callback, http://localhost:3000/api/logout`
+    - `Allowed Web Origins` - `http://localhost:3000/callback`
   - An Auth0 API
+    - The API audience will be `https://hasura.io/learn`
   - Auth0 rules for `hasura-jwt-claim` and `upsert-user`
-- Copy `__reference__/hasura-cloud-spike/.env.sample` to `__reference__/hasura-cloud-spike/.env`
-  - `HASURA_GRAPHQL_JWT_SECRET` needs to be updated to the configuration specific to your Auth0 domain at https://hasura.io/jwt-config/
-- Copy `__reference__/hasura-cloud-spike/app/.env.example` to `__reference__/hasura-cloud-spike/app/.env`
-- Use `ngrok` to make your locally running GraphQL API available to the outside world
-  - Be sure to update your Auth0 `upsert-user` rule to point to your locally hosted GraphQL API
-- Update `__reference__/hasura-cloud-spike/app/.env`
-  - `GRAPHQL_WEB_ENDPOINT` and `GRAPHQL_WEBSOCKET_ENDPOINT` need to point to your locally hosted GraphQL API
+
+    - Be sure to update your Auth0 `hasura-jwt-claim` rule to use the namespace `https://hasura.io/jwt/claims`
+
+    ```js
+    function (user, context, callback) {
+      const namespace = "https://hasura.io/jwt/claims";
+
+      context.accessToken[namespace] =
+        {
+          'x-hasura-default-role': 'user',
+          // do some custom logic to decide allowed roles
+          'x-hasura-allowed-roles': ['user'],
+          'x-hasura-user-id': user.user_id
+        };
+      callback(null, user, context);
+    }
+    ```
+
+    - Be sure to update your Auth0 `upsert-user` rule to point to your Hasura Cloud GraphQL API and to use your admin_secret defined as `HASURA_GRAPHQL_ADMIN_SECRET`
+
+    ```js
+    function (user, context, callback) {
+      const userId = user.user_id;
+      const nickname = user.nickname;
+
+      // Modify with your Hasura admin secret and URL to the application
+      const admin_secret = "myhasura";
+      const url = "https://demo-hc-spike.hasura.app/v1/graphql";
+
+      // Define your GraphQL mutation and query variables object
+      const query = `mutation($userId: String!, $nickname: String) {
+        insert_users(objects: [{
+          id: $userId, name: $nickname
+        }], on_conflict: {constraint: users_pkey, update_columns: [last_seen, name]}
+        ) {
+          affected_rows
+        }
+      }`;
+      const variables = { "userId": userId, "nickname": nickname };
+
+      request.post({
+          url: url,
+          headers: {'content-type' : 'application/json', 'x-hasura-admin-secret': admin_secret},
+          body: JSON.stringify({
+            query: query,
+            variables: variables
+          })
+      }, function(error, response, body){
+          console.log(body);
+          callback(null, user, context);
+      });
+    }
+    ```
+
+- Copy `__reference__/hasura-cloud-spike/app/.env.example` to `__reference__/hasura-cloud-spike/app/.env` with th following settings:
+  - `GRAPHQL_WEB_ENDPOINT` and `GRAPHQL_WEBSOCKET_ENDPOINT` need to point to your Hasura Cloud GraphQL API
   - `AUTH0_AUDIENCE` needs to be updated with your defined audience (`https://hasura.io/learn` if you're following the steps in the README)
-  - `AUTH0_DOMAIN` will look something like `my-auth0-tenant.us.auth0.com`
+  - `AUTH0_DOMAIN` will look something like `myapp.us.auth0.com`
   - `AUTH0_CLIENT_ID`
   - `AUTH0_CLIENT_SECRET`
+  - `HASURA_GRAPHQL_ADMIN_SECRET` - Use a password of your choosing ("myhasura" for the demo)
+  - `HASURA_GRAPHQL_JWT_SECRET` - This needs to be updated to the configuration specific to your Auth0 domain at https://hasura.io/jwt-config/
 - Once you have the application started with `npm run hasura-cloud-spike:start`, you will need to run the initial database setup and migration scripts from another terminal window with `npm run hasura-cloud-spike:db:migrate`
 
 The following scripts have been added for working with the demo project exploring [Hasura](https://hasura.io) as a back-end API:
@@ -112,7 +168,7 @@ The following scripts have been added for working with the demo project explorin
 
 Once you have started your application:
 
-- The Hasura Console is available at [http://localhost:8080/console](http://localhost:8080/console)
+- The Hasura Cloud console is available at [https://cloud.hasura.io/](https://cloud.hasura.io/)
 
 !["__reference__/hasura-cloud-spike/__screenshots__/hasura-console-fresh-install.png"](__reference__/hasura-cloud-spike/__screenshots__/hasura-console-fresh-install.png)
 
