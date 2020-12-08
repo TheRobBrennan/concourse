@@ -70,7 +70,109 @@ Additional scripts have been created to explore and follow along the official [C
 - `nextjs-blog:destroy` - This removes all stopped containers (services)
 - `nextjs-blog:destroy:global` - **WARNING: This removes all unused Docker containers, networks, volumes, and images not referenced by any containers on your system - including those created in other projects. Be careful!**
 
-## SPIKE: Back-end API - Hasura
+## SPIKE: Back-end API - Hasura Cloud using a Heroku PostgreSQL database
+
+This demo is intended to explore using [Hasura Cloud](https://hasura.io/cloud/) with a [PostgreSQL database](https://www.heroku.com/postgres) hosted on [Heroku](https://www.heroku.com/postgres).
+
+**IMPORTANT** Please be sure to follow the initial setup guide in `__reference__/hasura-cloud-spike/README.md`.
+
+You will need to create:
+
+- An Auth0 account with
+
+  - An Auth0 tenant
+  - An Auth0 single page application with appropriate callback URLs
+    - `Allowed Callback URLs` - `http://localhost:3000/callback, http://localhost:3000/api/callback`
+    - `Allowed Logout URLs` - `http://localhost:3000/, http://localhost:3000/callback, http://localhost:3000/api/callback, http://localhost:3000/api/logout`
+    - `Allowed Web Origins` - `http://localhost:3000/callback`
+  - An Auth0 API
+    - The API audience will be `https://hasura.io/learn`
+  - Auth0 rules for `hasura-jwt-claim` and `upsert-user`
+
+    - Be sure to update your Auth0 `hasura-jwt-claim` rule to use the namespace `https://hasura.io/jwt/claims`
+
+    ```js
+    function (user, context, callback) {
+      const namespace = "https://hasura.io/jwt/claims";
+
+      context.accessToken[namespace] =
+        {
+          'x-hasura-default-role': 'user',
+          // do some custom logic to decide allowed roles
+          'x-hasura-allowed-roles': ['user'],
+          'x-hasura-user-id': user.user_id
+        };
+      callback(null, user, context);
+    }
+    ```
+
+    - Be sure to update your Auth0 `upsert-user` rule to point to your Hasura Cloud GraphQL API and to use your admin_secret defined as `HASURA_GRAPHQL_ADMIN_SECRET`
+
+    ```js
+    function (user, context, callback) {
+      const userId = user.user_id;
+      const nickname = user.nickname;
+
+      // Modify with your Hasura admin secret and URL to the application
+      const admin_secret = "myhasura";
+      const url = "https://demo-hc-spike.hasura.app/v1/graphql";
+
+      // Define your GraphQL mutation and query variables object
+      const query = `mutation($userId: String!, $nickname: String) {
+        insert_users(objects: [{
+          id: $userId, name: $nickname
+        }], on_conflict: {constraint: users_pkey, update_columns: [last_seen, name]}
+        ) {
+          affected_rows
+        }
+      }`;
+      const variables = { "userId": userId, "nickname": nickname };
+
+      request.post({
+          url: url,
+          headers: {'content-type' : 'application/json', 'x-hasura-admin-secret': admin_secret},
+          body: JSON.stringify({
+            query: query,
+            variables: variables
+          })
+      }, function(error, response, body){
+          console.log(body);
+          callback(null, user, context);
+      });
+    }
+    ```
+
+- Copy `__reference__/hasura-cloud-spike/app/.env.example` to `__reference__/hasura-cloud-spike/app/.env` with th following settings:
+  - `GRAPHQL_WEB_ENDPOINT` and `GRAPHQL_WEBSOCKET_ENDPOINT` need to point to your Hasura Cloud GraphQL API
+  - `AUTH0_AUDIENCE` needs to be updated with your defined audience (`https://hasura.io/learn` if you're following the steps in the README)
+  - `AUTH0_DOMAIN` will look something like `myapp.us.auth0.com`
+  - `AUTH0_CLIENT_ID`
+  - `AUTH0_CLIENT_SECRET`
+  - `HASURA_GRAPHQL_ADMIN_SECRET` - Use a password of your choosing ("myhasura" for the demo)
+  - `HASURA_GRAPHQL_JWT_SECRET` - This needs to be updated to the configuration specific to your Auth0 domain at https://hasura.io/jwt-config/
+- Once you have the application started with `npm run hasura-cloud-spike:start`, you will need to run the initial database setup and migration scripts from another terminal window with `npm run hasura-cloud-spike:db:migrate`
+
+The following scripts have been added for working with the demo project exploring [Hasura](https://hasura.io) as a back-end API:
+
+- `hasura-cloud-spike:build` - This stops any running services and destroys containers before performing a fresh build of the project.
+- `hasura-cloud-spike:start` - This launches the Dockerized application.
+- `hasura-cloud-spike:start:clean` - This starts the entire Dockerized application with freshly built Docker images
+- `hasura-cloud-spike:stop` - This stops all services
+- `hasura-cloud-spike:db:migrate` - This runs database migration scripts against the Hasura endpoint specified in `__reference__/hasura-cloud-spike/config.yaml`
+
+  - After running `hasura:db:migrate`, your Hasura console should look like:
+    ![__reference__/hasura-cloud-spike/__screenshots__/hasura-console-after-running-db-migrate.png](__reference__/hasura-cloud-spike/__screenshots__/hasura-console-after-running-db-migrate.png)
+
+- `hasura-cloud-spike:destroy` - This removes all stopped containers (services)
+- `hasura-cloud-spike:destroy:global` - **WARNING: This removes all unused Docker containers, networks, volumes, and images not referenced by any containers on your system - including those created in other projects. Be careful!**
+
+Once you have started your application:
+
+- The Hasura Cloud console is available at [https://cloud.hasura.io/](https://cloud.hasura.io/)
+
+!["__reference__/hasura-cloud-spike/__screenshots__/hasura-console-fresh-install.png"](__reference__/hasura-cloud-spike/__screenshots__/hasura-console-fresh-install.png)
+
+## SPIKE: Back-end API - Hasura using a local Dockerized environment
 
 **IMPORTANT** Please be sure to follow the initial setup guide in `__reference__/hasura-spike/README.md`.
 
