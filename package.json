@@ -1,7 +1,7 @@
 {
   "name": "concourse",
   "version": "0.0.0",
-  "description": "",
+  "description": "This project explores working with Next.js, TypeScript, Storybook, and Cypress within a Docker environment for local development.",
   "keywords": [],
   "author": "Rob Brennan <rob@therobbrennan.com> (therobbrennan.com)",
   "license": "ISC",
